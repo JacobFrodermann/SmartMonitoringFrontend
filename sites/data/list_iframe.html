@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title swac_lang="data_list_title">Data > List</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="stylesheet" href="../../css/global.css" />
+
+        <link rel="stylesheet" href="/SWAC/swac/libs/uikit/css/uikit.min.css" />
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+
+        <script src="../../js/data/list_iframe.js"></script>
+        <script src="../../js/general/oo_change.js"></script>
+        <script src="../../customisations/data/datadesc.js"></script>
+
+        <link rel="stylesheet" href="../../customisations/global.css" />
+    </head>
+
+    <body>
+        <div id="translate" style="display: none;" swa="Translator FROM ../../data/languages/translations.json"></div>
+
+        <article class="uk-article">
+            <h2 class="uk-article-title" swac_lang="data_list_title">Data > List</h2>
+            <p class="uk-article-meta" swac_lang="data_list_desc"></p>
+
+            <div id="data_add" swa="Edit FROM {{data_collection}} WHERE geotransform=latlon AND filter=oo_id,neoeq,{{oo_id}}"></div>
+            
+            <div id="datalist" swa="Present FROM {{data_collection}} WHERE geotransform=latlon AND filter=oo_id,neoeq,{{oo_id}}">
+                <table id="datatable" class="uk-table uk-table-divider uk-table-striped">
+                    <tr>
+                        <th class="func_labels" swac_lang="data_list_labels"></th>
+                        <th class="swac_repeatForAttribute">{attrName}</th>
+                    </tr>
+                    <tr class="swac_repeatForSet">
+                        <td class="func_labels">
+                            <div id="labels_{id}" swa="Labeling FROM label_datasets WHERE filter=set_id,eq,{id} AND filter=data_collection,eq,{{data_collection}} OPTIONS labels_options"></div>
+                        </td>
+                        <td class="func_datamap">
+                            <a href="map.html?id={{id}}&data_collection={{data_collection}}&zoomToSet={id}">data_list_showonmap</a>
+                            <a href="map.html?id={{id}}&data_collection={{data_collection}}&filter=cluster,eq,{cluster},datamap">data_list_showcluster</a>
+                        </td>
+                        <td class="swac_repeatForValue">
+                            <span uk-tooltip="title: {attrName}">{*}</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+                <li><a href="#" swac_lang="data_list_legend_title">Legend</a></li>
+                <li><a href="#" swac_lang="data_list_access_title">Data access</a></li>
+            </ul>
+            <ul class="uk-switcher uk-margin">
+                <li>
+                    <div id="datalist_datadescription" swa="Datadescription FROM datadesc"></div>
+                </li>
+                <li>
+                    <p swac_lang="data_list_access_desc"></p>
+                    <a href="api.html?data_collection={{data_collection}}" swac_lang="data_list_access_link"></a>
+                </li>
+            </ul>
+        </article>
+        <div id="favs" swa="Favourites"></div>
+    </body>
+</html>

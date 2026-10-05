@@ -1,0 +1,585 @@
+{
+  "source": {
+    "name": "Open Water Quality Example",
+    "provider": "Testdaten Bachelorarbeit",
+    "license": "CC0",
+    "description": "Verschachtelte Wasserqualitaetsdaten mit 25 zufaellig wirkenden Messreihen und Zeitstempeln"
+  },
+  "records": [
+    {
+      "messZeit": "2026-06-03T06:10:00",
+      "messwerte": {
+        "Temperatur C": "11,84",
+        "pH": "7,43",
+        "Sauerstoff mg/l": "10,62",
+        "Nitrat mg/l": "5,37",
+        "Leitfaehigkeit uS/cm": "418",
+        "Truebung NTU": "1,94"
+      },
+      "station": {
+        "name": "Weser Minden Nord 01",
+        "waterbody": "Weser Messbereich 31",
+        "position": {
+          "lat": "52,201",
+          "lon": "8,801"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_41",
+        "validiert": "validiert_61"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T06:55:00",
+      "messwerte": {
+        "Temperatur C": "19,27",
+        "pH": "6,88",
+        "Sauerstoff mg/l": "7,15",
+        "Nitrat mg/l": "24,73",
+        "Leitfaehigkeit uS/cm": "816",
+        "Truebung NTU": "12,58"
+      },
+      "station": {
+        "name": "Bastau Innenstadt 02",
+        "waterbody": "Bastau Messbereich 32",
+        "position": {
+          "lat": "52,208",
+          "lon": "8,810"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_42",
+        "validiert": "validiert_62"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T07:40:00",
+      "messwerte": {
+        "Temperatur C": "13,06",
+        "pH": "8,12",
+        "Sauerstoff mg/l": "11,38",
+        "Nitrat mg/l": "9,84",
+        "Leitfaehigkeit uS/cm": "533",
+        "Truebung NTU": "3,17"
+      },
+      "station": {
+        "name": "Mittellandkanal Hille 03",
+        "waterbody": "Mittellandkanal Messbereich 33",
+        "position": {
+          "lat": "52,215",
+          "lon": "8,819"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_43",
+        "validiert": "validiert_63"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T08:25:00",
+      "messwerte": {
+        "Temperatur C": "22,91",
+        "pH": "7,06",
+        "Sauerstoff mg/l": "5,92",
+        "Nitrat mg/l": "34,29",
+        "Leitfaehigkeit uS/cm": "967",
+        "Truebung NTU": "16,43"
+      },
+      "station": {
+        "name": "Werre Bad Oeynhausen 04",
+        "waterbody": "Werre Messbereich 34",
+        "position": {
+          "lat": "52,222",
+          "lon": "8,828"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_44",
+        "validiert": "validiert_64"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T09:10:00",
+      "messwerte": {
+        "Temperatur C": "16,38",
+        "pH": "7,77",
+        "Sauerstoff mg/l": "8,46",
+        "Nitrat mg/l": "13,52",
+        "Leitfaehigkeit uS/cm": "641",
+        "Truebung NTU": "6,79"
+      },
+      "station": {
+        "name": "Aue Petershagen 05",
+        "waterbody": "Aue Messbereich 35",
+        "position": {
+          "lat": "52,229",
+          "lon": "8,837"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_45",
+        "validiert": "validiert_65"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T09:55:00",
+      "messwerte": {
+        "Temperatur C": "9,72",
+        "pH": "6,51",
+        "Sauerstoff mg/l": "12,04",
+        "Nitrat mg/l": "4,18",
+        "Leitfaehigkeit uS/cm": "302",
+        "Truebung NTU": "0,83"
+      },
+      "station": {
+        "name": "Weser Minden Nord 06",
+        "waterbody": "Weser Messbereich 36",
+        "position": {
+          "lat": "52,236",
+          "lon": "8,846"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_46",
+        "validiert": "validiert_66"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T10:40:00",
+      "messwerte": {
+        "Temperatur C": "24,36",
+        "pH": "8,34",
+        "Sauerstoff mg/l": "4,87",
+        "Nitrat mg/l": "38,66",
+        "Leitfaehigkeit uS/cm": "1048",
+        "Truebung NTU": "18,27"
+      },
+      "station": {
+        "name": "Bastau Innenstadt 07",
+        "waterbody": "Bastau Messbereich 37",
+        "position": {
+          "lat": "52,243",
+          "lon": "8,855"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_47",
+        "validiert": "validiert_67"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T11:25:00",
+      "messwerte": {
+        "Temperatur C": "14,95",
+        "pH": "7,21",
+        "Sauerstoff mg/l": "9,73",
+        "Nitrat mg/l": "17,08",
+        "Leitfaehigkeit uS/cm": "724",
+        "Truebung NTU": "9,31"
+      },
+      "station": {
+        "name": "Mittellandkanal Hille 08",
+        "waterbody": "Mittellandkanal Messbereich 38",
+        "position": {
+          "lat": "52,250",
+          "lon": "8,864"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_48",
+        "validiert": "validiert_68"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T12:10:00",
+      "messwerte": {
+        "Temperatur C": "20,64",
+        "pH": "6,73",
+        "Sauerstoff mg/l": "6,58",
+        "Nitrat mg/l": "28,44",
+        "Leitfaehigkeit uS/cm": "889",
+        "Truebung NTU": "14,72"
+      },
+      "station": {
+        "name": "Werre Bad Oeynhausen 09",
+        "waterbody": "Werre Messbereich 39",
+        "position": {
+          "lat": "52,257",
+          "lon": "8,873"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_49",
+        "validiert": "validiert_69"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T12:55:00",
+      "messwerte": {
+        "Temperatur C": "12,48",
+        "pH": "7,98",
+        "Sauerstoff mg/l": "10,19",
+        "Nitrat mg/l": "7,63",
+        "Leitfaehigkeit uS/cm": "455",
+        "Truebung NTU": "2,46"
+      },
+      "station": {
+        "name": "Aue Petershagen 10",
+        "waterbody": "Aue Messbereich 40",
+        "position": {
+          "lat": "52,264",
+          "lon": "8,882"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_50",
+        "validiert": "validiert_70"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T13:40:00",
+      "messwerte": {
+        "Temperatur C": "18,02",
+        "pH": "6,94",
+        "Sauerstoff mg/l": "7,82",
+        "Nitrat mg/l": "21,91",
+        "Leitfaehigkeit uS/cm": "778",
+        "Truebung NTU": "11,06"
+      },
+      "station": {
+        "name": "Weser Minden Nord 11",
+        "waterbody": "Weser Messbereich 41",
+        "position": {
+          "lat": "52,271",
+          "lon": "8,891"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_51",
+        "validiert": "validiert_71"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T14:25:00",
+      "messwerte": {
+        "Temperatur C": "15,73",
+        "pH": "8,21",
+        "Sauerstoff mg/l": "11,67",
+        "Nitrat mg/l": "10,36",
+        "Leitfaehigkeit uS/cm": "589",
+        "Truebung NTU": "4,55"
+      },
+      "station": {
+        "name": "Bastau Innenstadt 12",
+        "waterbody": "Bastau Messbereich 42",
+        "position": {
+          "lat": "52,278",
+          "lon": "8,900"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_52",
+        "validiert": "validiert_72"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T15:10:00",
+      "messwerte": {
+        "Temperatur C": "23,14",
+        "pH": "7,32",
+        "Sauerstoff mg/l": "5,41",
+        "Nitrat mg/l": "36,02",
+        "Leitfaehigkeit uS/cm": "995",
+        "Truebung NTU": "17,64"
+      },
+      "station": {
+        "name": "Mittellandkanal Hille 13",
+        "waterbody": "Mittellandkanal Messbereich 43",
+        "position": {
+          "lat": "52,285",
+          "lon": "8,909"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_53",
+        "validiert": "validiert_73"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T15:55:00",
+      "messwerte": {
+        "Temperatur C": "10,58",
+        "pH": "6,67",
+        "Sauerstoff mg/l": "12,49",
+        "Nitrat mg/l": "3,94",
+        "Leitfaehigkeit uS/cm": "337",
+        "Truebung NTU": "1,28"
+      },
+      "station": {
+        "name": "Werre Bad Oeynhausen 14",
+        "waterbody": "Werre Messbereich 44",
+        "position": {
+          "lat": "52,292",
+          "lon": "8,918"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_54",
+        "validiert": "validiert_74"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T16:40:00",
+      "messwerte": {
+        "Temperatur C": "21,47",
+        "pH": "8,06",
+        "Sauerstoff mg/l": "6,13",
+        "Nitrat mg/l": "31,75",
+        "Leitfaehigkeit uS/cm": "932",
+        "Truebung NTU": "15,09"
+      },
+      "station": {
+        "name": "Aue Petershagen 15",
+        "waterbody": "Aue Messbereich 45",
+        "position": {
+          "lat": "52,299",
+          "lon": "8,927"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_55",
+        "validiert": "validiert_75"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T17:25:00",
+      "messwerte": {
+        "Temperatur C": "17,29",
+        "pH": "7,54",
+        "Sauerstoff mg/l": "8,91",
+        "Nitrat mg/l": "15,27",
+        "Leitfaehigkeit uS/cm": "672",
+        "Truebung NTU": "7,84"
+      },
+      "station": {
+        "name": "Weser Minden Nord 16",
+        "waterbody": "Weser Messbereich 46",
+        "position": {
+          "lat": "52,306",
+          "lon": "8,936"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_56",
+        "validiert": "validiert_76"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T18:10:00",
+      "messwerte": {
+        "Temperatur C": "12,91",
+        "pH": "6,42",
+        "Sauerstoff mg/l": "10,88",
+        "Nitrat mg/l": "6,46",
+        "Leitfaehigkeit uS/cm": "394",
+        "Truebung NTU": "2,03"
+      },
+      "station": {
+        "name": "Bastau Innenstadt 17",
+        "waterbody": "Bastau Messbereich 47",
+        "position": {
+          "lat": "52,313",
+          "lon": "8,945"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_57",
+        "validiert": "validiert_77"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T18:55:00",
+      "messwerte": {
+        "Temperatur C": "25,18",
+        "pH": "8,41",
+        "Sauerstoff mg/l": "4,52",
+        "Nitrat mg/l": "40,19",
+        "Leitfaehigkeit uS/cm": "1086",
+        "Truebung NTU": "19,35"
+      },
+      "station": {
+        "name": "Mittellandkanal Hille 18",
+        "waterbody": "Mittellandkanal Messbereich 48",
+        "position": {
+          "lat": "52,320",
+          "lon": "8,954"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_58",
+        "validiert": "validiert_78"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T19:40:00",
+      "messwerte": {
+        "Temperatur C": "14,22",
+        "pH": "7,13",
+        "Sauerstoff mg/l": "9,28",
+        "Nitrat mg/l": "18,64",
+        "Leitfaehigkeit uS/cm": "748",
+        "Truebung NTU": "10,57"
+      },
+      "station": {
+        "name": "Werre Bad Oeynhausen 19",
+        "waterbody": "Werre Messbereich 49",
+        "position": {
+          "lat": "52,327",
+          "lon": "8,963"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_59",
+        "validiert": "validiert_79"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T20:25:00",
+      "messwerte": {
+        "Temperatur C": "19,86",
+        "pH": "6,59",
+        "Sauerstoff mg/l": "7,36",
+        "Nitrat mg/l": "26,88",
+        "Leitfaehigkeit uS/cm": "854",
+        "Truebung NTU": "13,21"
+      },
+      "station": {
+        "name": "Aue Petershagen 20",
+        "waterbody": "Aue Messbereich 50",
+        "position": {
+          "lat": "52,334",
+          "lon": "8,972"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_60",
+        "validiert": "validiert_80"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T21:10:00",
+      "messwerte": {
+        "Temperatur C": "8,97",
+        "pH": "7,89",
+        "Sauerstoff mg/l": "12,76",
+        "Nitrat mg/l": "2,71",
+        "Leitfaehigkeit uS/cm": "286",
+        "Truebung NTU": "0,49"
+      },
+      "station": {
+        "name": "Weser Minden Nord 21",
+        "waterbody": "Weser Messbereich 51",
+        "position": {
+          "lat": "52,341",
+          "lon": "8,981"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_61",
+        "validiert": "validiert_81"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T21:55:00",
+      "messwerte": {
+        "Temperatur C": "22,08",
+        "pH": "8,27",
+        "Sauerstoff mg/l": "5,74",
+        "Nitrat mg/l": "33,58",
+        "Leitfaehigkeit uS/cm": "1017",
+        "Truebung NTU": "16,91"
+      },
+      "station": {
+        "name": "Bastau Innenstadt 22",
+        "waterbody": "Bastau Messbereich 52",
+        "position": {
+          "lat": "52,348",
+          "lon": "8,990"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_62",
+        "validiert": "validiert_82"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T22:40:00",
+      "messwerte": {
+        "Temperatur C": "16,64",
+        "pH": "6,81",
+        "Sauerstoff mg/l": "8,22",
+        "Nitrat mg/l": "14,09",
+        "Leitfaehigkeit uS/cm": "628",
+        "Truebung NTU": "5,88"
+      },
+      "station": {
+        "name": "Mittellandkanal Hille 23",
+        "waterbody": "Mittellandkanal Messbereich 53",
+        "position": {
+          "lat": "52,355",
+          "lon": "8,999"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_63",
+        "validiert": "validiert_83"
+      }
+    },
+    {
+      "messZeit": "2026-06-03T23:25:00",
+      "messwerte": {
+        "Temperatur C": "24,71",
+        "pH": "7,68",
+        "Sauerstoff mg/l": "4,96",
+        "Nitrat mg/l": "37,41",
+        "Leitfaehigkeit uS/cm": "1063",
+        "Truebung NTU": "18,82"
+      },
+      "station": {
+        "name": "Werre Bad Oeynhausen 24",
+        "waterbody": "Werre Messbereich 54",
+        "position": {
+          "lat": "52,362",
+          "lon": "9,008"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_64",
+        "validiert": "validiert_84"
+      }
+    },
+    {
+      "messZeit": "2026-06-04T00:10:00",
+      "messwerte": {
+        "Temperatur C": "13,57",
+        "pH": "7,35",
+        "Sauerstoff mg/l": "10,44",
+        "Nitrat mg/l": "8,72",
+        "Leitfaehigkeit uS/cm": "492",
+        "Truebung NTU": "3,96"
+      },
+      "station": {
+        "name": "Aue Petershagen 25",
+        "waterbody": "Aue Messbereich 55",
+        "position": {
+          "lat": "52,369",
+          "lon": "9,017"
+        }
+      },
+      "qualitaet": {
+        "klasse": "klasse_65",
+        "validiert": "validiert_85"
+      }
+    }
+  ]
+}

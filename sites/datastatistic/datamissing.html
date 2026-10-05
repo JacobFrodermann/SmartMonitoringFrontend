@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de" class="uk-height-1-1 uk-width-1-1">
+    <head>
+        <title swac_lang="stat_datamissing_title">Data > Missing datasets</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="stylesheet" href="../../css/global.css" />
+
+        <link rel="stylesheet" href="/SWAC/swac/libs/uikit/css/uikit.min.css" />
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+
+        <script src="../../js/datastatistic/datamissing.js"></script>
+        <script src="../../js/general/oo_change.js"></script>
+
+        <link rel="stylesheet" href="../../customisations/global.css" />
+    </head>
+    <body class="uk-overflow-auto uk-height-1-1">
+        <nav id="main_navigation" class="swac_navigation_head" swa="Navigation FROM tbl_navigationroute WHERE filter=active,eq,true AND order=id,ASC"></nav>
+        <div id="userform" swa="User"></div>
+        <div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+        <div id="oo_change" swa="Select FROM tbl_observedobject WHERE filter=data_collection,nis"></div>
+        <article>
+            <!--<div class="uk-child-width-expand@s" uk-grid>-->
+            <!--                <div class="uk-card uk-card-default uk-card-body">
+                                <div id="misschart" swa="Charts FROM /SmartDataLyser/smartdatalyser/check/completeness?smartdataurl={{smartdataurl}}&collection={{data_collection}}&storage=smartmonitoring&dateattribute=ts&measurefreq={{measurerate}}"></div>
+                                <div id="misschart_legend" swa="Datadescription FROM misschart_legend_data"></div>
+                            </div>-->
+            <!--</div>-->
+            <h1 class="uk-heading-bullet" swac_lang="missingperiods">Periods missing data</h1>
+            <p swac_lang="missingperiods_desc">This list contains times where are less datasets found than expected.</p>
+            <div id="missingperiods" swa="Present FROM /SmartDataLyser/smartdatalyser/check/missingperiods?smartdataurl={{smartdataurl}}&collection={{data_collection}}&storage=smartmonitoring&dateattribute=ts&measurefreq={{measurerate}}&start={{start}}&end={{end}}">
+                <table class="uk-table uk-table-divider">
+                    <thead>
+                        <tr>
+                            <th swac_lang="Timeframe">Timeframe</th>
+                            <th swac_lang="missingsets">Number of missing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="swac_repeatForSet">
+                            <td>{timespan}</td>
+                            <td>{missingentries}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p swac_lang="missingperiods_link">Link for custom analysis: </p>
+            <a href="/SmartDataLyser/smartdatalyser/check/missingperiods?smartdataurl={{smartdataurl}}&collection={{data_collection}}&storage=smartmonitoring&dateattribute=ts&measurefreq={{measurerate}}&start={{start}}&end={{end}}">/SmartDataLyser/smartdatalyser/check/missingperiods?smartdataurl={{smartdataurl}}&collection={{data_collection}}&storage=smartmonitoring&dateattribute=ts&measurefreq={{measurerate}}&start={{start}}&end={{end}}</a>
+
+        </article>
+        <div id="favs" swa="Favourites"></div>
+    </body>
+</html>

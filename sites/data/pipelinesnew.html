@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title swac_lang="data_pipelinesnew_title">New data pipeline</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="stylesheet" type="text/css" href="../../css/global.css">
+        <noscript>
+        <link rel="stylesheet" type="text/css" href="../../css/noscript.css">
+        </noscript>
+
+        <link rel="stylesheet" type="text/css" href="/SWAC/swac/libs/uikit/css/uikit.min.css">
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+        <script src="../../js/data/pipelines_new.js"></script>
+    </head>
+    <body>
+        <header id="head_navigation" swa="Navigation FROM tbl_navigationroute WHERE filter=active,eq,true AND order=id,ASC"></header>
+        <div id="userform" swa="User"></div>
+        <div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+
+        <article>
+            <h1 swac_lang="data_pipelinesnew_title">New datapipeline</h1>
+            <p swac_lang="data_pipelinesnew_desc">Here you can create a new datapipeline.</p>
+
+            <ul class="uk-accordion-default" uk-accordion>
+                <li class="uk-open">
+                    <a class="uk-accordion-title" href="#">data_pipelinesnew_meta</a>
+                    <div class="uk-accordion-content">
+                        <p swac_lang="data_pipelinesnew_meta_desc"></p>
+                        <form>
+                            <fieldset class="uk-fieldset">
+                                <div class="uk-margin">
+                                    <input id="name" class="uk-input" type="text" placeholder="data_pipelinesnew_meta_name" aria-label="Input">
+                                </div>
+                                <div class="uk-margin">
+                                    <textarea id="desc" class="uk-textarea" rows="5" placeholder="data_pipelinesnew_meta_desc2" aria-label="Textarea"></textarea>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <a class="uk-accordion-title" href="#">data_pipelinesnew_input</a>
+                    <div class="uk-accordion-content">
+                        <p swac_lang="data_pipelinesnew_input_desc"></p>
+                        <div id="input_oo" swa="Select FROM tbl_observedobject WHERE filter=data_collection,nis"></div>
+                        <label class="uk-form-label" for="input_filter">Filter</label>
+                        <div class="uk-form-controls">
+                            <input id="input_filter" class="uk-input" type="text" placeholder="data_pipelines_input_filter" aria-label="Input">
+                        </div>
+                        <div id="input_oo_preview" swa="Present TEMPLATE table_for_all_datasets"></div>
+                        
+                        <b swac_lang="data_pipelines_input_accesscode">Data access code</b>
+                        <pre swac_allowReplace><code class="input_oo_code"></code></pre>
+                        <div class="input_oo_code_pre swac_dontdisplay">
+fetch('{{smartdataurlnenc}}/smartdata/records/[reference]', {
+    method: "GET",
+    headers: {
+        "Content-Type": "text/csv"  // Omit this when wanting json
+    }
+});
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="uk-accordion-title" href="#">data_pipelinesnew_worker</a>
+                    <div class="uk-accordion-content">
+                        <p swac_lang="data_pipelinesnew_worker_desc"></p>
+                        <div id="worker_oo" swa="Select FROM tbl_observedobject WHERE filter=isworker,eq,true"></div>
+                        <label class="uk-form-label" for="worker_confset">data_pipelines_worker_confset</label>
+                        <div class="uk-form-controls">
+                            <input id="worker_confset" class="uk-input" type="text" placeholder="1" aria-label="Input">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="uk-accordion-title" href="#">data_pipelinesnew_output</a>
+                    <div class="uk-accordion-content">
+                        <p swac_lang="data_pipelinesnew_output_desc"></p>
+                        <div id="output_oo" swa="Select FROM tbl_observedobject WHERE filter=data_collection,nis"></div>
+                        <a href="#" class="pipelines_save_btn uk-button uk-button-primary">data_pipelinesnew_save</a>
+                    </div>
+                </li>
+            </ul>
+
+        </article>
+        <footer>
+            <a href="about/privacy.html">Privacy policy / Datenschutzerklärung</a>
+            <a href="about/imprint.html">Imprint / Impressum</a>
+            <a class="toplink" href="#">Top</a>
+        </footer>
+    </body>
+</html>

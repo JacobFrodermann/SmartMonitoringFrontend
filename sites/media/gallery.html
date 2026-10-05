@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title swac_lang="media_gellery_title">Media > Gallery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="stylesheet" href="../../css/global.css" />
+
+        <link rel="stylesheet" href="/SWAC/swac/libs/uikit/css/uikit.min.css" />
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+
+        <script src="../../js/media/gallery.js"></script>
+        <script src="../../js/general/oo_change.js"></script>
+
+        <link rel="stylesheet" href="../../customisations/global.css" />
+    </head>
+
+    <body>
+        <nav id="main_navigation" class="swac_navigation_head" swa="Navigation FROM tbl_navigationroute WHERE filter=active,eq,true AND order=id,ASC"></nav>
+        <div id="userform" swa="User"></div>
+        <div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+        <div id="oo_change" swa="Select FROM tbl_observedobject WHERE filter=data_collection,nis"></div>
+
+        <article class="uk-article">
+            <h1 class="uk-article-title"><a class="uk-link-reset" href="">Mediengallerie</a></h1>
+            <p class="uk-article-meta">Hier können Sie die verfügbaren Funktionen dieser SmartMonitoring Installation verwalten</p>
+            <!-- media previews with link to editor -->
+            <div id="mediapreview" swa="Mediapreview FROM {{collection_media}} WHERE size=25 AND order=ts,DESC"></div>
+        </article>
+        <article>
+            <h1>Accessing images</h1>
+            <ul uk-tab>
+                <li><a href="#">Access images with JavaScript</a></li>
+                <li><a href="#">Access images with Python</a></li>
+            </ul>
+            <div class="uk-switcher uk-margin">
+                <div>
+                    <p></p>
+                    <b>Javascript example</b>
+                    <pre swac_allowReplace><code>
+fetch('{{smartdataurlnenc}}/smartdata/records/{{collection_media}}/?storage=smartmonitoring&filter=ts%2Cgt%2C2022-12-06T00%3A00&filter=ts%2Clt%2C2022-12-06T23%3A59&order=ts', {
+    method: "GET"
+})
+.then(response => response.json())
+.then(data => {
+
+    // Base URL where image files are served (adjust if necessary)
+    const baseImageUrl = "{{baseurl}}/";
+
+    data.records.forEach(record => {
+
+        // The relative image path stored in the dataset
+        const relativePath = record.path;
+
+        // Build the full HTTP URL to the image
+        const imageUrl = baseImageUrl.replace(/\/+$/, "") + "/" + relativePath.replace(/^\/+/, "");
+
+        console.log("Image URL:", imageUrl);
+
+        // Example: create an <img> element and display the image
+        // const img = document.createElement("img");
+        // img.src = imageUrl;
+        // document.body.appendChild(img);
+    });
+})
+.catch(err => console.error("Error fetching data:", err));
+                    </code></pre>
+                </div>
+                <div>
+                    <p></p>
+                    <b>Python example</b>
+                    <pre swac_allowReplace><code>
+import requests
+
+# API endpoint for retrieving records
+url = (
+    "{{smartdataurlnenc}}"
+    "smartdata/records/{{collection_media}}"
+    "?storage=smartmonitoring"
+    "&filter=ts%2Cgt%2C2022-12-06T00%3A00"
+    "&filter=ts%2Clt%2C2022-12-06T23%3A59"
+    "&order=ts"
+)
+
+response = requests.get(url)
+data = response.json()
+
+# Base URL where image files are served (adjust if necessary)
+base_image_url = "{{baseurl}}"
+
+def join_url(base, relative):
+    """Safely join base URL and relative path without duplicate slashes."""
+    return base.rstrip("/") + "/" + relative.lstrip("/")
+
+for record in data.get("records", []):
+    # Relative path stored in the dataset
+    relative_path = record.get("path")
+
+    # Build the full HTTP URL to the image
+    image_url = join_url(base_image_url, relative_path)
+
+    print("Image URL:", image_url)
+
+    # Example: download the image (optional)
+    # img_data = requests.get(image_url).content
+    # with open("image.jpg", "wb") as f:
+    #     f.write(img_data)
+
+                    </code></pre>
+                </div>
+            </div>
+        </article>
+
+        <div id="favs" swa="Favourites"></div>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "rfrom": "*",
+        "rto": "device/control.html?oo_id={{oo_id}}",
+        "frame": "dataframe",
+        "name": "Add data",
+        "icon": "home"
+    },
+    {
+        "id": 2,
+        "rfrom": "*",
+        "rto": "device/mprocesses.html?oo_id={{oo_id}}&data_collection={data_collection}",
+        "frame": "dataframe",
+        "name": "Add data",
+        "icon": "/SWAC/swac/components/Icon/imgs/data/database_view.svg"
+    },
+    {
+        "id": 3,
+        "rfrom": "*",
+        "rto": "device/sync.html?oo_id={{oo_id}}",
+        "frame": "dataframe",
+        "name": "View data",
+        "icon": "/SWAC/swac/components/Icon/imgs/data/database_upload.svg"
+    }
+]

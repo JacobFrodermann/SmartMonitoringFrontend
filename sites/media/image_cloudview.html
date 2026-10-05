@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title swac_lang="helios_cloudview">HELIOS > CloudView</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="stylesheet" href="../../css/global.css" />
+
+        <link rel="stylesheet" href="/SWAC/swac/libs/uikit/css/uikit.min.css" />
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+
+        <script src="../../js/media/image_cloudview.js"></script>
+        <!--<script src="../../js/general/oo_change.js"></script>-->
+
+        <link rel="stylesheet" href="../../customisations/global.css" />
+    </head>
+
+    <body>
+        <!--<nav id="main_navigation" class="swac_navigation_head" swa="Navigation FROM tbl_navigationroute WHERE filter=active,eq,true AND order=id,ASC"></nav>-->
+        <!--<div id="userform" swa="User"></div>-->
+        <!--<div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>-->
+        <!--<div id="oo_change" swa="Select FROM tbl_observedobject WHERE filter=data_collection,nis"></div>-->
+
+        <article class="uk-article">
+            <h1 class="uk-article-title"><a class="uk-link-reset" href="">HELIOS CloudView</a></h1>
+            <p class="uk-article-meta">Cloud image view for All Sky Images and Metadata</p>
+            <!-- media previews with link to editor -->
+            <div id="image_cloudview" swa="Present FROM {{collection_media}} WHERE filter=id,eq,{{id}}">
+                <div class="swac_repeatForSet">
+                    <div class="uk-grid-small uk-child-width-1-2@m" uk-grid>
+
+                        <!-- Bildanzeige -->
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-small uk-overflow-hidden allsky_image_container_{id}">
+                                <div class="uk-card-media-top">
+                                    <div style="position:relative;">
+                                        <img src="/{path}" style="width:100%; display:block;">
+                                        <!--                                        <img src="/{sky_mask_line}" style="width:100%; position:absolute; top:0; left:0;">-->
+                                    </div>
+                                </div>
+                                <div class="uk-card-body">
+                                    <h4 class="uk-card-title">All Sky Image</h4>
+                                    <p class="uk-text-meta">Resolution: {image_height} x {image_width} px</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-small">
+                                <div class="uk-card-header">
+                                    <h4 class="uk-card-title">Extracted Metadata</h4>
+                                    <p class="uk-text-meta">Metadata from camera</p>
+                                </div>
+
+                                <div class="uk-card-body">
+                                    <div class="uk-margin-small">
+                                        <span class="uk-text-bold">Take time:</span>
+
+                                        <div class="uk-text-center">
+                                            <div class="current_ts_{id}" data-ts="{ts}">{ts}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="uk-margin-small">
+                                        <span class="uk-text-bold">Picture size:</span>
+
+                                        <div class="uk-text-center">
+                                            <span>{size}</span> Byte
+                                        </div>
+                                    </div>
+
+                                    <div class="uk-margin-small">
+                                        <span class="uk-text-bold">Temperature:</span>
+
+                                        <div class="uk-text-center">
+                                            <span>{temp}</span> °C
+                                        </div>
+                                    </div>
+
+                                    <div class="uk-margin-small">
+                                        <span class="uk-text-bold">Inn. Temperature:</span>
+
+                                        <div class="uk-text-center">
+                                            <span>{inn_temp}</span> °C
+                                        </div>
+                                    </div>
+
+                                    <div class="uk-margin-small">
+                                        <span class="uk-text-bold">Humidity:</span>
+
+                                        <div class="uk-text-center">
+                                            <span>{humidity}</span> %
+                                        </div>
+                                    </div>
+
+                                    <div class="uk-margin-small">
+                                        <span class="uk-text-bold">Rain flag:</span>
+
+                                        <div class="uk-text-center">
+                                            <span>{rain}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="uk-margin-small">
+                                        <span class="uk-text-bold">Irradiation:</span>
+
+                                        <div class="uk-text-center">
+                                            <span>{irradiation}</span> W/m²
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="uk-grid-small uk-child-width-1-2@m" uk-grid>
+
+                        <div>
+                            <h4>Statisches Tages‑Keogramm (Spalten)</h4>
+                            <canvas id="day_kcol_canvas_{id}" style="max-height:200px"></canvas>
+                        </div>
+
+                        <div>
+                            <h4>Statisches Tages‑Keogramm (Zeilen)</h4>
+                            <canvas id="day_kline_canvas_{id}" style="max-width:200px"></canvas>
+                        </div>
+
+                        <div>
+                            <h4>Dynamisches Tages‑Keogramm (Nord-Süd)</h4>
+                            <canvas id="day_dynkeo_ns_canvas_{id}" style="max-height:200px"></canvas>
+                        </div>
+
+                        <div>
+                            <h4>Dynamisches Tages‑Keogramm (Ost-West)</h4>
+                            <canvas id="day_dynkeo_ew_canvas_{id}" style="max-width:200px"></canvas>
+                        </div>
+                        
+                        <div>
+                            <h4>Dynamisches Tages‑Keogramm (Azimut-Elevation)</h4>
+                            <canvas id="day_dynkeo_azel_canvas_{id}" style="max-width:200px"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!--<div id="favs" swa="Favourites"></div>-->
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title swac_lang="data_list_title">Data > List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../customisations/global.css"/>
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="/SWAC/swac/libs/uikit/css/uikit.min.css" />
+    <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+    <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+    <script src="/SWAC/swac/swac.js" type="module"></script>
+    <script src="../../js/object/routePlanner.js"></script>
+
+    <!-- Google Icons + Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="config-box" id="config-box"></div>
+<nav id="main_navigation" class="swac_navigation_head" swa="Navigation FROM tbl_navigationroute WHERE filter=active,eq,true AND order=id,ASC"></nav>
+<div id="userform" swa="User"></div>
+<div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+
+
+    <div class="section">
+        <!-- Page title -->
+        <h1 class="uk-heading-bullet" swac_lang="menu_objectmap"></h1>
+        <h2 swac_lang="route_planner"></h2>
+
+        <ul class="uk-subnav uk-subnav-pill custom-switcher" uk-tab="connect: #route-switcher; swiping: false">
+            <li class="uk-active"><a href="#" swac_lang="menu_objectmap"></a></li>
+            <li><a href="#" swac_lang="menu_object_list"></a></li>
+        </ul>
+        <div id="route-switcher" class="uk-switcher uk-margin">
+
+            <!-- TAB 1 Planning -->
+            <div>
+                <div id="planner" swa="Worldmap2d"></div>
+                <div id="worldmap_geolocate" swa="Geolocation"></div>
+            </div>
+
+            <!-- TAB 2 List of planned Routes -->
+            <article style="padding-left: 0;">
+                <div class="dev-card">
+                    <div id="datalist" swa="Present FROM {{route_data_destination}} WHERE geotransform=latlon AND unique={{route_identifier}}">
+                        <table class="dev-table" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th swac_lang="starting_point"></th>
+                                    <th swac_lang="end_point">Endpunkt</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="swac_repeatForSet">
+                                    <td id="route_{id}">{route_id}</td>
+                                    <td>
+                                        <div swac_lang_format="decimal" swac_round="4" id="startpoint_lat_{id}" swa="Present FROM {{route_data_destination}} WHERE geotransform=latlon AND filter=description,eq,Startpunkt AND filter={{route_identifier}},eq,{route_id}">
+                                            {pos_lat} / {pos_lon}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div swac_lang_format="decimal" swac_round="4" id="enpoint_lat_{id}" swa="Present FROM {{route_data_destination}} WHERE geotransform=latlon AND filter=description,eq,Zielpunkt AND filter={{route_identifier}},eq,{route_id}">
+                                            {pos_lat} / {pos_lon}
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</body>
+</html>

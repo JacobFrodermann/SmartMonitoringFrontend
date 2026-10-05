@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title swac_lang="data_pipelines_title">Data pipelines</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="stylesheet" type="text/css" href="../../css/global.css">
+        <noscript>
+        <link rel="stylesheet" type="text/css" href="../../css/noscript.css">
+        </noscript>
+
+        <link rel="stylesheet" type="text/css" href="/SWAC/swac/libs/uikit/css/uikit.min.css">
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+    </head>
+    <body>
+        <header id="head_navigation" swa="Navigation FROM tbl_navigationroute WHERE filter=active,eq,true AND order=id,ASC"></header>
+        <div id="userform" swa="User"></div>
+        <div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+        
+        <article>
+            <h1 swac_lang="data_pipelines_title">List of pipelines</h1>
+            <p swac_lang="data_pipelines_desc">Here you see the curently defines data pipelines</p>
+            <a class="uk-button uk-button-primary" href="pipelinesnew.html" swac_lang="data_pipelines_new">New data pipeline</a>
+            
+            <div id="sourcestable" swa="Present FROM datapipelines">
+                <table class="uk-table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Source</th>
+                        <th>Source filter</th>
+                        <th>Worker</th>
+                        <th>Configuration</th>
+                        <th>Target</th>
+                    </tr>
+                    <tr class="swac_repeatForSet">
+                        <td>{name}</td>
+                        <td>{desc}</td>
+                        <td><a href="{input_ooid}" target="_blank">{input_ooid}</a></td>
+                        <td>>{input_filter}</td>
+                        <td><a href="{worker_ooid}">{worker_ooid}</a></td>
+                        <td><a href="{worker_confset}">{worker_confset}</a></td>
+                        <td><a href="{output_ooid}" target="_blank">{output_ooid}</a></td>
+                    </tr>
+                </table>
+            </div>
+
+        </article>
+        <footer>
+            <a href="about/privacy.html">Privacy policy / Datenschutzerklärung</a>
+            <a href="about/imprint.html">Imprint / Impressum</a>
+            <a class="toplink" href="#">Top</a>
+        </footer>
+    </body>
+</html>

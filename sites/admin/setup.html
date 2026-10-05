@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title swac_lang="adm_setup_title">Administration > Setup</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="stylesheet" href="../../css/global.css" />
+
+        <link rel="stylesheet" href="/SWAC/swac/libs/uikit/css/uikit.min.css" />
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+
+        <script src="../../js/admin/setup.js"></script>
+    </head>
+
+    <body>
+        <div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+
+        <h1 class="uk-heading-divider">SmartMonitoring Setup</h1>
+        <p swac_lang="adm_setup_desc"></p>
+
+        <ul uk-tab>
+            <li><a href="#" swac_lang="adm_setup_step1_title">Step 1: CustomisationSet</a></li>
+            <li><a href="#" swac_lang="adm_setup_step2_title">Step 2: Datasource configuration</a></li>
+            <li><a href="#" swac_lang="adm_setup_step3_title">Step 3: Install base tables</a></li>
+            <li><a href="#" swac_lang="adm_setup_step4_title">Step 4: Customisation</a></li>
+            <li><a href="#" swac_lang="adm_setup_step5_title">Step 5: Add more functions</a></li>
+        </ul>
+
+        <ul class="uk-switcher uk-margin">
+            <li>
+                <p swac_lang="adm_setup_step1_desc"></p>
+            </li>
+            <li>
+                <p swac_lang="adm_setup_step2_desc"></p>
+                <div id="adm_configuration" swa="Present FROM SWAC_config.datasources"></div>
+
+                <ul uk-accordion>
+                    <li class="uk-open">
+                        <a class="uk-accordion-title" href="#" swac_lang="adm_setup_step2_help_title">Further help</a>
+                        <div class="uk-accordion-content">
+                            <p swac_lang="adm_setup_step2_help_desc"></p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p swac_lang="adm_setup_step3_desc"></p>
+                <div id="adm_presets" swa="PresetManager FROM ../../data/admin/presets/base.json"></div>
+            </li>
+            <li>
+                <p swac_lang="adm_setup_step4_desc"></p>
+                <table class="uk-table uk-table-striped">
+                    <thead>
+                        <tr><th>Path</th><th>Description</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>/data/languages</td><td>Contains all language files</td></tr>
+                        <tr><td>/files/backgrounds/login.avif</td><td>Background image for login page</td></tr>
+                        <tr><td>/files/icons/*</td><td>App icon and logo image files</td></tr>
+                        <tr><td>/files/objecticons/*</td><td>Object icon and logo image files. Named as the typename of your observed object. Must be given as png and avif.</td></tr>
+                    </tbody>
+                </table>
+                <a href="../../customisations/CustomisationSetTemplate.zip" target="_blank" class="uk-button uk-button-default" swac_lang="adm_setup_step4_downloadCustTpl">Download CustomisationSet Template</a>
+            </li>
+            <li>
+                <p swac_lang="adm_setup_step5_desc"></p>
+                <a href="functions.html" class="uk-button uk-button-primary" swac_lang="adm_setup_step5_tofunctions">Go to functions</a>
+            </li>
+        </ul>
+    </body>
+</html>

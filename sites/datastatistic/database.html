@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de" class="uk-height-1-1 uk-width-1-1">
+    <head>
+        <title swac_lang="data_dbstatistic_title">Data > Database Statistic</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="stylesheet" href="../../css/global.css" />
+
+        <link rel="stylesheet" href="/SWAC/swac/libs/uikit/css/uikit.min.css" />
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+
+        <script src="../../js/datastatistic/database.js"></script>
+
+        <link rel="stylesheet" href="../../customisations/global.css" />
+    </head>
+    <body class="uk-overflow-auto uk-height-1-1">
+        <nav id="main_navigation" class="swac_navigation_head" swa="Navigation FROM tbl_navigationroute WHERE filter=active,eq,true AND order=id,ASC"></nav>
+        <div id="userform" swa="User"></div>
+        <div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+        <article>
+            <h1 class="uk-heading-bullet" swac_lang="stat_dboverview_title">Data > Database statistic</h1>
+            <p swac_lang="stat_dboverview_desc">This page gives an overview about the data managed by this SmartMonitoring instance.</p>
+
+            <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+                <div>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <h2 swac_lang="colscount">Number of collections</h2>
+                        <div class="cols">0</div>
+                        <h2 swac_lang="setscount">Number of sets</h2>
+                        <div class="sets_whole">0</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <h2 swac_lang="firstset">First set</h2>
+                        <div class="sets_oldest">-</div>
+                        (<span class="sets_oldestcol"></span>)
+                        <h2 swac_lang="lastset">Last set</h2>
+                        <div class="sets_newest">-</div>
+                        (<span class="sets_newestcol"></span>)
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <h2 swac_lang="size_now">Actual Size</h2>
+                        <div class="size_now">0</div>
+                        <h2 swac_lang="size_1y">Estimated size in one year</h2>
+                        <div class="size_1y"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="collections_list" swa="Present">
+                <table class="uk-table uk-table-striped">
+                    <tbody>
+                        <tr>
+                            <th swac_lang="name">Objectname</th>
+                            <th swac_lang="collection_name">Collection name</th>
+                            <th swac_lang="setscount">Datasets count</th>
+                            <th swac_lang="setsdays">Days collected</th>
+                            <th swac_lang="setsperday">Sets per day</th>
+                            <th swac_lang="firstset">First dataset</th>
+                            <th swac_lang="lastset">Last dataset</th>
+                            <th swac_lang="size_now">Size</th>
+                            <th swac_lang="complfact">Completenes</th>
+                            <th swac_lang="operations">Operations</th>
+                        </tr>
+                        <tr class="swac_repeatForSet">
+                            <td>{name}</td>
+                            <td>{data_collection}</td>
+                            <td>{count}</td>
+                            <td>{days}</td>
+                            <td>{setsperday}</td>
+                            <td>{firstset}</td>
+                            <td>{lastset}</td>
+                            <td>{byte}</td>
+                            <td>{complfact}</td>
+                            <td><a href="datamissing.html?data_collection={data_collection}&measurerate={measurerate}&start={firstset}&end={lastset}" swac_lang="missingsets">Missing data</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <!--                <article class="swac_repeatForSet uk-comment">
+                                    <header class="uk-comment-header">
+                                        <img class="uk-comment-avatar" src="" width="" height="" alt="">
+                                        <h4 class="uk-comment-title"><a href="../object/view.html?id={id}">{name}</a></h4>
+                                        <ul class="uk-comment-meta uk-subnav"><li>{data_collection}</li></ul>
+                                    </header>
+                                    <div class="uk-comment-body">
+                                        <div id="objectdata_stat_{id}" swa="Present FROM /SmartDataLyser/smartdatalyser/statistic/whole?smartdataurl={{smartdataurl}}&collection={data_collection}&storage=smartmonitoring&dateattribute=ts">
+                                            
+                                        </div>
+                
+                                    </div>
+                                </article>-->
+            </div>
+        </article>
+        <div id="favs" swa="Favourites"></div>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title swac_lang="object_dashboard_title">SmartMonitoring - Device dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="shortcut icon" type="image/x-icon" href="../../customisations/favicon.ico">
+        <link rel="stylesheet" href="../../css/global.css" />
+        <link rel="stylesheet" href="/SWAC/swac/libs/uikit/css/uikit.min.css" />
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+        <script src="../../js/device/mprocesses.js"></script>
+        <link rel="stylesheet" href="../../customisations/global.css" />
+    </head>
+    <body>
+        <div id="measurement_processes" swa="Present FROM cmd://SmartData/smartdata/records/sensordata WHERE unique=measurement_process,measurement_name AND order=measurement_process,DESC AND filter=measurement_process,nis">
+            <div class="uk-overflow-auto">
+                <table class="uk-table uk-table-hover uk-table-striped">
+                    <tr>
+                        <th>mprocesses_process</th>
+                        <th>mprocesses_name</th>
+                        <th>app.mprocesses_measurements</th>
+                        <th></th>
+                    </tr>
+                    <tr class="swac_repeatForSet uk-position-relative">
+                        <td swac_lang_format="datetime">{measurement_process}</td>
+                        <td>{measurement_name}</td>
+                        <td>{avail_sets}</td>
+                        <td><a href="mprocess.html?data_collection={{data_collection}}&measurement_process={measurement_process}&clearstates=true">mprocesses_todetails</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="uk-text-center">
+            <a href="../datagroups/list.html?oo_id={{oo_id}}&data_collection={{data_collection}}&groupattr=measurement_process" target="_blank" swac_lang="mprocesses_link_olderdata">Older data is available here</a>
+        </div>
+    </body>
+</html>

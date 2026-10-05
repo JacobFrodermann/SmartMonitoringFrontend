@@ -1,0 +1,372 @@
+/* 
+    Put here general style
+    Be aware these file should only be used if the default layout of ui-kit does not fit.
+*/
+body {
+    padding: 0;
+}
+article {
+    padding: 0;
+}
+[alt="Project logo"] {
+    width: 200px;
+    height: 200px;
+}
+
+/** Place custom styles like unit chars for your application here. See wiki for more information. */
+body {
+    background-color: #F6F6F6;
+    margin: 0;
+    padding: 0;
+}
+
+h1  {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+h2 {
+    font-size: 36px !important;
+    font-weight: 700 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+h3 {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-left: 100px !important;
+    margin-right: 100px !important;
+}
+
+.dev-card { background:#fff; border-radius:10px; padding:8px; }
+.dev-header {width: fit-content; height: fit-content; padding: 5px 10px; background: #e3e6f7; border-radius: 5px; margin: 10px 0}
+
+table.dev-table { width:100%; border-collapse:separate; border-spacing:0; table-layout: auto;}
+table.dev-table thead th { text-align:left; font-weight:700; color:#333; padding:10px 10px; background:#fff; }
+table.dev-table tbody td { padding:10px 10px; border-top:1px solid #eee; color:#555; vertical-align:middle; }
+table.dev-table tbody tr:hover { background:#fafbff; }
+
+.stats-container {
+    display: flex !important;
+    gap: 20px !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    margin-top: 16px !important;
+    flex-wrap: wrap !important;
+    padding-right: 0 !important;
+    padding-bottom: 20px;
+}
+
+.stat-card {
+    flex: 1 !important;
+    min-width: 180px !important;
+    background: #fff;
+    border-radius: 10px !important;
+    padding: 20px 24px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: left !important;
+    gap: 16px !important;
+}
+
+.stat-card:hover {
+    background: #e3e6f7;
+    transition: all 0.2s ease;
+}
+
+.stats-icon {
+    background: #e3e6f7;
+    color: #5c6bff;
+    font-size: 22px;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+}
+
+.stat-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #777;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: 12px;
+}
+
+/* Icon perfekt mittig vertikal ausgerichtet */
+.search-icon {
+    position: absolute;
+    left: 12px;
+    color: #727683;       /* dein grey */
+    font-size: 20px;
+    pointer-events: none;
+    line-height: 1;
+}
+
+/* Suchfeld */
+.search-input {
+    font-family: "Outfit", sans-serif;
+    width: 260px;
+    padding: 10px 14px 10px 40px; /* Platz links für Icon */
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 15px;
+    color: #1A1A1D;
+    outline: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    display: block;
+}
+
+/* Hover + Fokus */
+.search-input:hover { border-color: #ccc; }
+.search-input:focus {
+    outline: none; /* entfernt die gestrichelte Linie */
+    border-color: #3754FA;
+    box-shadow: 0 0 0 3px rgba(55,84,250,0.1);
+}
+
+/* Platzhalter */
+.search-input::placeholder {
+    color: #999;
+    font-weight: 400;
+}
+
+.status-online {
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 10px;
+    background: #cdead1;
+    color: #079718;
+    border-radius: 5px;
+    margin: 10px 0
+}
+
+.status-offline {
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 10px;
+    background: #fddcdc;
+    color: #F84F4F;
+    border-radius: 5px;
+    margin: 10px 0
+}
+
+.status-unknown {
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 10px;
+    background: #fcecd5;
+    color: #F3A02B;
+    border-radius: 5px;
+    margin: 10px 0
+}
+
+th[onclick] {
+    cursor: pointer;
+    position: relative;
+    padding-right: 8px;
+    white-space: nowrap;
+}
+
+/* grauer Pfeil beim Hover */
+th[onclick]:hover::after {
+    content: "▲";
+    display: inline-block;
+    margin-left: 6px;
+    color: #aaa;
+    font-size: 0.8em;
+    vertical-align: middle;
+}
+
+/* aktiver Sortierpfeil */
+th.sorted-asc::after {
+    content: "▲";
+    display: inline-block;
+    margin-left: 6px;
+    color: #000;
+    font-size: 0.8em;
+    vertical-align: middle;
+}
+th.sorted-desc::after {
+    content: "▼";
+    display: inline-block;
+    margin-left: 6px;
+    color: #000;
+    font-size: 0.8em;
+    vertical-align: middle;
+}
+
+/* UI KIT OVERWRITE */
+
+/* Entferne UIKit Hintergrund & Border von Pills */
+.custom-switcher > li > a {
+    background: transparent !important;
+    border-radius: 5px !important;
+    color: grey !important;
+    padding: 5px 10px !important;
+    transition: 0.2s ease;
+}
+
+/* AKTIV (wie .dev-header) */
+.custom-switcher > li.uk-active > a {
+    background: #e3e6f7 !important;
+    color: #3754FA !important;
+    font-weight: 600;
+}
+
+/* Hover-Effekt */
+.custom-switcher > li > a:hover {
+    background: #f0f2fc !important;
+    color: #3754FA !important;
+}
+
+/* UIkit border line entfernen */
+.custom-switcher::before {
+    display: none !important;
+}
+
+/*Filter Eingabefeld ausblenden*/
+.dev-table th input[swac_table_filter_attrname] {
+            display: none !important;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.dashboard-titles h1,
+.dashboard-titles h2 {
+    margin: 0;
+}
+
+.dashboard-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+
+    background: #f5f6fa;
+    color: #3f51ff;
+
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.dashboard-action-btn:hover {
+    background: #e9ebf5;
+    transform: translateY(-1px);
+}
+
+.dashboard-action-btn .material-icons-outlined {
+    font-size: 22px;
+}
+
+/* Chart */
+.chart-input {
+    font-family: "Outfit", sans-serif;
+    width: 200px;
+    padding: 10px 14px 10px 10px;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 15px;
+    color: #1A1A1D;
+    outline: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    display: block;
+}
+
+.chart-input:hover {
+    border-color: #ccc;
+}
+
+.chart-input:focus {
+    outline: none;
+    border-color: #3754FA;
+    box-shadow: 0 0 0 3px rgba(55,84,250,0.1);
+}
+
+.chart-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 24px !important;
+    justify-content: flex-start !important;
+    align-items: flex-end !important;
+    margin-top: 10px !important;
+    padding-right: 0 !important;
+    padding-bottom: 12px;
+    margin-left: 50px;
+    margin-right: auto;
+    max-width: 900px; 
+}
+
+.chart-label {
+    font-size: 20px;
+    font-weight: 600;
+    color: #222;
+}
+
+.dev-card .chart-container:last-of-type > div:last-child {
+    margin-left: auto;
+}
+
+.chart-button {
+    background: #bcc6ff;
+    border-radius: 10px !important;
+    padding: 10px 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    font-size: 16px;
+    font-weight: 600;
+    color: #222;
+    border: 0px !important;
+    cursor: pointer;
+    flex: 0 0 auto !important; 
+}
+
+.chart-button:hover {
+    background: #acb2d8;
+    transition: all 0.2s ease;
+}
+

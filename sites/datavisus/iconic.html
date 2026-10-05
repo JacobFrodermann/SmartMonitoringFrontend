@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de" class="uk-height-1-1 uk-width-1-1">
+    <head>
+        <title swac_lang="data_visualisation_title">Data &gt; Visualisation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="stylesheet" href="../../css/global.css" />
+
+        <link rel="stylesheet" href="/SWAC/swac/libs/uikit/css/uikit.min.css" />
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+
+        <script src="../../js/general/oo_change.js"></script>
+        <script src="../../js/datavisus/iconic.js"></script>
+
+        <link rel="stylesheet" href="../../customisations/global.css" />
+        <link rel="stylesheet" href="../../customisations/data/visualisation.css?ver=20.08.2026.3" />
+    </head>
+    <body class="uk-overflow-auto uk-height-1-1">
+        <nav id="main_navigation" class="swac_navigation_head" swa="Navigation FROM tbl_navigationroute WHERE filter=active,eq,true AND order=id,ASC"></nav>
+        <div id="userform" swa="User"></div>
+        <div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+        <div id="oo_change" swa="Select FROM tbl_observedobject WHERE filter=data_collection,nis AND order=name,ASC"></div>
+
+        <div class="section">
+            <article class="uk-article">
+                <h1 class="uk-heading-bullet" swac_lang="data_visualisation_headline">Visualisierung</h1>                
+                <p class="uk-article-meta" swac_lang="data_visualisation_desc">Die Visualisierung wird anhand der erkannten Zahlenwerte automatisch ausgewählt.</p>
+                <p class="uk-text-meta uk-margin-remove-top" swac_lang="data_visualisation_current_value">Die Visualisierung zeigt standardmäßig den zuletzt gemessenen Datensatz der ausgewählten Station.</p>
+
+                <div class="visualisation-controls uk-margin">
+                    <div class="visualisation-mode-control">
+                        <label class="uk-form-label" for="visualisation_mode" swac_lang="data_visualisation_mode">Darstellung alle Attribute</label>
+                        <select id="visualisation_mode" class="uk-select">
+                            <option value="automatic" swac_lang="data_visualisation_mode_automatic">Automatisch</option>
+                            <option value="individual" swac_lang="data_visualisation_mode_individual">Individuell</option>
+                            <option value="circle" swac_lang="data_visualisation_mode_circle">Kreiswert</option>
+                            <option value="thermometer" swac_lang="data_visualisation_mode_thermometer">Thermometer</option>
+                            <option value="hygrometer" swac_lang="data_visualisation_mode_hygrometer">Hygrometer</option>
+                            <option value="progress" swac_lang="data_visualisation_mode_progress">Kreisfortschritt</option>
+                            <option value="chart" swac_lang="data_visualisation_mode_chart">Zeitverlauf</option>
+                        </select>
+                    </div>
+                    <div class="visualisation-column-control">
+                        <label class="uk-form-label" for="visualisation_columns" swac_lang="data_visualisation_columns">Visualisierung in</label>
+                        <select id="visualisation_columns" class="uk-select">
+                            <option value="1" swac_lang="data_visualisation_columns_1">1 Spalte</option>
+                            <option value="2" swac_lang="data_visualisation_columns_2">2 Spalten</option>
+                            <option value="3" swac_lang="data_visualisation_columns_3">3 Spalten</option>
+                            <option value="4" swac_lang="data_visualisation_columns_4">4 Spalten</option>
+                            <option value="5" swac_lang="data_visualisation_columns_5">5 Spalten</option>
+                        </select>
+                    </div>
+                    <fieldset class="visualisation-attribute-control">
+                        <legend class="uk-form-label" swac_lang="data_visualisation_individual_attributes">Darstellung je Attribut</legend>
+                        <div id="visualisation_attribute_list" class="visualisation-attribute-list"></div>
+                        <p id="visualisation_attribute_empty" class="uk-text-muted uk-margin-small-top" hidden swac_lang="data_visualisation_no_attributes">Keine darstellbaren Zahlenwerte gefunden.</p>
+                    </fieldset>
+                    <button id="visualisation_attribute_apply" class="uk-button uk-button-primary" type="button" disabled swac_lang="data_visualisation_apply">Anwenden</button>
+                </div>
+
+                <div id="auto_visualisation"></div>
+                <div id="visualisation_chart"></div>
+            </article>
+        </div>
+        <div id="favs" swa="Favourites"></div>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+#datamap .swac_worldmap2d_plugins_area > div {
+    margin-top: 120px;
+}
+
+#datamap_routes {
+    clear: both;
+    margin-top: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+body > .swac_version {
+    display: none;
+}
+
+.datamap-route-detail {
+    background-color: #F6F6F6;
+    clear: both;
+    margin-top: 0;
+    padding-top: 32px;
+    position: relative;
+    z-index: 3;
+}
+
+.datamap-route-detail-header {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.datamap-route-points-wrapper {
+    overflow-x: auto;
+}
+
+.datamap-route-points {
+    width: 100%;
+}
+
+.datamap-route-points th {
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.datamap-route-points thead tr:nth-child(2) th {
+    cursor: default;
+    padding-top: 0;
+}
+
+.datamap-route-points-label::after {
+    color: #aaa;
+    content: "\2195";
+    display: inline-block;
+    font-size: 0.8em;
+    margin-left: 6px;
+}
+
+.datamap-route-points th[data-sort-direction="asc"] .datamap-route-points-label::after {
+    color: #1A1A1D;
+    content: "\25B2";
+}
+
+.datamap-route-points th[data-sort-direction="desc"] .datamap-route-points-label::after {
+    color: #1A1A1D;
+    content: "\25BC";
+}
+
+.datamap-route-points-filter {
+    min-width: 120px;
+}
+
+.datamap-route-points td {
+    white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+    .datamap-route-detail-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title swac_lang="data_sources_title">Datasources</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="stylesheet" type="text/css" href="../../css/global.css">
+        <noscript>
+        <link rel="stylesheet" type="text/css" href="../../css/noscript.css">
+        </noscript>
+
+        <link rel="stylesheet" type="text/css" href="/SWAC/swac/libs/uikit/css/uikit.min.css">
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+        <script src="../../js/data/sources.js"></script>
+    </head>
+    <body>
+        <header id="head_navigation" swa="Navigation FROM tbl_navigationroute WHERE filter=active,eq,true AND order=id,ASC"></header>
+        <div id="userform" swa="User"></div>
+        <div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+
+        <article>
+            <h1 swac_lang="data_sources_title">List of datasources</h1>
+            <p swac_lang="data_sources_desc">The folowing list contains open datasources</p>
+
+            <div id="sourcestable" swa="Present FROM tbl_datasource WHERE join=tbl_observedobject AND order=id,DESC">
+                <ul class="uk-list">
+                    <li class="swac_repeatForSet" swac_parent="{parent}">
+                        <div class="uk-card uk-card-default uk-card-small uk-card-body">
+                            <div uk-grid>
+                                <div class="uk-width-small">
+                                    <picture>
+                                        <source srcset="../../files/sourceicons/{icon}.avif" type="image/avif">
+                                        <img src="../../files/sourceicons/{icon}.png" alt="object icon" width="100" height="100" style="float: left;">
+                                    </picture>
+                                </div>
+                                <div class="uk-width-expand@m">
+                                    <h3 class="uk-card-title" uk-tooltip="{id}">{name}</h3>
+                                    <div>{shortdesc}</div>
+                                    <ul class="uk-subnav uk-subnav-divider" uk-margin>
+                                        <li>{swac_joinsetsCount} &nbsp;<span swac_lang="data_sources_objectcount">objects with this source.</span></li>
+                                        <li><span swac_lang="data_sources_license">License</span> &nbsp;<a href="{data_license_url}">{data_license}</a></li>
+                                    </ul>
+                                    <ul class="uk-accordion-default" uk-accordion>
+                                        <li>
+                                            <a class="uk-accordion-title" href="#">
+                                                <span uk-icon="info"></span>
+                                                <span swac_lang="data_sources_data_description">Data description</span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <p>{description}</p>
+                                                <ul>
+                                                    <li swac_hideOnEmpty="{data_class}">
+                                                        <span swac_lang="data_sources_data_class">Dataclass:</span> {data_class}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li swac_hideOnEmpty="{data_actual_api}{data_actual_url}{data_actual_tool}">
+                                            <a class="uk-accordion-title" href="#">
+                                                <span uk-icon="clock"></span>
+                                                <span swac_lang="data_sources_actual">Actual data</span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <table class="uk-table">
+                                                    <tr swac_hideOnEmpty="{data_actual_interval_sec}">
+                                                        <td swac_lang="data_sources_actual_interval_sec">Measurement interval</td>
+                                                        <td>{data_actual_interval_sec} sec</td>
+                                                    </tr>
+                                                    <tr swac_hideOnEmpty="{data_actual_format}">
+                                                        <td swac_lang="data_sources_actual_format">Data format</td>
+                                                        <td>{data_actual_format}</td>
+                                                    </tr>
+                                                    <tr swac_hideOnEmpty="{data_actual_maxdays}">
+                                                        <td swac_lang="data_sources_actual_maxdays">Maximum days data is accessable:</td>
+                                                        <td>{data_actual_maxdays}</td>
+                                                    </tr>
+                                                </table>
+                                                <section swac_hideOnEmpty="{data_actual_api_guide}">
+                                                    <h4 swac_lang="data_sources_actual_api_guide">How to access by API</h4>
+                                                    <span swac_lang="data_sources_actual_api">Actual data API:</span> <a swac_hideOnEmpty="{data_actual_api}" href="{data_actual_api}">{data_actual_api}</a>
+                                                    <p>{data_actual_api_guide}</p>
+                                                </section>
+                                                <section swac_hideOnEmpty="{data_actual_url_guide}">
+                                                    <h4 swac_lang="data_sources_actual_url_guide">How to access by Download</h4>
+                                                    <span swac_lang="data_sources_hist_url">Actual data URL:</span> <a swac_hideOnEmpty="{data_actual_url}" href="{data_actual_url}">{data_actual_url}</a>
+                                                    <p>{data_actual_url_guide}</p>
+                                                </section>
+                                                <section swac_hideOnEmpty="{data_actual_tool_guide}">
+                                                    <h4 swac_lang="data_sources_actual_tool_guide">How to access by Tool</h4>
+                                                    <span swac_lang="data_sources_actual_tool">Actual data tool: </span><a swac_hideOnEmpty="{data_actual_toolurl}" href="{data_actual_toolurl}">{data_actual_tool}</a>
+                                                    <p>{data_actual_tool_guide}</p>
+                                                    <br><b>Tool configuration</b>
+                                                    <code swac_parseBindPoints="true"><pre swac_parseBindPoints="true">{data_actual_tool_conf}</pre></code>
+                                                </section>
+                                            </div>
+                                        </li>
+                                        <li swac_hideOnEmpty="{data_hist_api}{data_hist_url}{data_hist_tool}">
+                                            <a class="uk-accordion-title" href="#">
+                                                <span uk-icon="history"></span>
+                                                <span swac_lang="data_sources_hist">Historical data</span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <table class="uk-table">
+                                                    <tr swac_hideOnEmpty="{data_hist_interval_sec}">
+                                                        <td swac_lang="data_sources_hist_interval_sec">Measurement interval</td>
+                                                        <td>{data_hist_interval_sec} sec</td>
+                                                    </tr>
+                                                    <tr swac_hideOnEmpty="{data_hist_format}">
+                                                        <td swac_lang="data_sources_hist_format">Data format</td>
+                                                        <td>{data_hist_format}</td>
+                                                    </tr>
+                                                    <tr swac_hideOnEmpty="{data_hist_maxdays}">
+                                                        <td swac_lang="data_sources_hist_maxdays">Maximum days data is accessable</td>
+                                                        <td>{data_hist_maxdays}</td>
+                                                    </tr>
+                                                    <tr swac_hideOnEmpty="{data_hist_import_ts}">
+                                                        <td swac_lang="data_sources_hist_import_ts">Last import from</td>
+                                                        <td swac_lang_format="datetime">{data_hist_import_ts}</td>
+                                                    </tr>
+                                                    <tr swac_hideOnEmpty="{data_hist_from}">
+                                                        <td swac_lang="data_sources_hist_from">First data from</td>
+                                                        <td swac_lang_format="datetime">{data_hist_from}</td>
+                                                    </tr>
+                                                    <tr swac_hideOnEmpty="{data_hist_till}">
+                                                        <td swac_lang="data_sources_hist_till">Last data from</td>
+                                                        <td swac_lang_format="datetime">{data_hist_till}</td>
+                                                    </tr>
+                                                </table>
+                                                <section swac_hideOnEmpty="{data_hist_api_guide}">
+                                                    <h4 swac_lang="data_sources_hist_api_guide">How to access by API</h4>
+                                                    <span swac_lang="data_sources_hist_api">Historical data API:</span> <a swac_hideOnEmpty="{data_hist_api}" href="{data_hist_api}">{data_hist_api}</a>
+                                                    <p>{data_hist_api_guide}</p>
+                                                </section>
+                                                <section swac_hideOnEmpty="{data_hist_url_guide}">
+                                                    <h4 swac_lang="data_sources_hist_url_guide">How to access by Download</h4>
+                                                    <span swac_lang="data_sources_hist_url">Historical data URL:</span> <a swac_hideOnEmpty="{data_hist_url}" href="{data_hist_url}">{data_hist_url}</a>
+                                                    <p>{data_hist_url_guide}</p>
+                                                </section>
+                                                <section swac_hideOnEmpty="{data_hist_tool_guide}">
+                                                    <h4 swac_lang="data_sources_hist_tool_guide">How to access by Tool</h4>
+                                                    <span swac_lang="data_sources_hist_tool">Historical data tool:</span> <a swac_hideOnEmpty="{data_hist_toolurl}" href="{data_hist_toolurl}">{data_hist_tool}</a>
+                                                    <p>{data_hist_tool_guide}</p>
+                                                    <br><b>Tool configuration</b>
+                                                    <code swac_parseBindPoints="true"><pre swac_parseBindPoints="true">{data_hist_tool_conf}</pre></code>
+                                                </section>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a class="uk-accordion-title" href="#">
+                                                <span uk-icon="bookmark"></span>
+                                                <span swac_lang="data_sources_citation">Citation</span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <p>{citation}</p>
+                                            </div>
+                                        </li>
+                                        <li swac_hideOnEmpty="{data_device_name}">
+                                            <a class="uk-accordion-title" href="#">
+                                                <span uk-icon="laptop"></span>
+                                                <span swac_lang="data_sources_device">Device</span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <b>{data_device_name}</b>
+                                                <br><p>{data_device_desc}</p>
+                                                <table class="uk-table">
+                                                    <tr swac_hideOnEmpty="{data_device_interval_sec}">
+                                                        <td swac_lang="data_sources_device_interval_sec">Measurement interval</td>
+                                                        <td>{data_device_interval_sec} sec</td>
+                                                    </tr>
+                                                    <tr swac_hideOnEmpty="{data_device_format}">
+                                                        <td swac_lang="data_sources_device_format">Data format</td>
+                                                        <td>{data_device_format}</td>
+                                                    </tr>
+                                                </table>
+                                                <p swac_hideOnEmpty="{data_device_url}"><span swac_lang="data_device_url">Device URL</span><a href="{data_device_url}">data_device_url_link</a></p>
+                                                <p swac_hideOnEmpty="{data_device_api}"><span swac_lang="data_device_api">Device API</span><a href="{data_device_api}">data_device_api_link</a></p>
+                                            </div>
+                                        </li>
+                                        <li swac_hideOnEmpty="{responsible_name}">
+                                            <a class="uk-accordion-title" href="#">
+                                                <span uk-icon="mail"></span>
+                                                <span swac_lang="data_sources_contact">Responsable contact</span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <p swac_hideOnEmpty="{responsible_name}"><span swac_lang="data_sources_responsible">Responsible contact</span> &nbsp;<a href="responsible_url">{responsible_name}</a></p>
+                                                <p swac_hideOnEmpty="{contact_name}"><span swac_lang="data_sources_contact">Contact</span> &nbsp;<a href="{contact_url}">{contact_name}</a> | <a swac_hideOnEmpty="{contact_email}" href="email:{contact_email}">{contact_email}</a> | <a swac_hideOnEmpty="{contact_phone}" href="tel:{contact_phone}">{contact_phone}</a> </p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a class="uk-accordion-title" href="#">
+                                                <span uk-icon="eye"></span>
+                                                <span swac_lang="data_sources_objectcount">Related observed objects</span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <div class="repeatForOo swac_dontdisplay">
+                                                    <b>[name]</b>
+                                                    <br>[description]
+                                                    <br>
+                                                    <a class="uk-button" href="../object/view.html?oo_id=[id]&data_collection=[data_collection]" target="_blank">Show object</a>
+                                                    <a class="uk-button" href="list.html?oo_id=[id]&data_collection=[data_collection]" target="_blank">Show data</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <ul class="swac_forChilds uk-list">
+                                <li class="swac_child">
+                                    <div class="uk-card uk-card-default uk-card-small uk-card-body">
+                                        <div uk-grid>
+                                            <div class="uk-width-small">
+                                                <picture>
+                                                    <source data-srcset="../../files/sourceicons/{icon}.avif" type="image/avif">
+                                                    <img data-src="../../files/sourceicons/{icon}.png" alt="object icon" width="100" height="100" style="float: left;">
+                                                </picture>
+                                            </div>
+                                            <div class="uk-width-expand@m">
+                                                <h3 class="uk-card-title">{name}</h3>
+                                                <div>{description} <a href="{link_url}" swac_hideOnEmpty="{link_url}">{link_title}</a></div>
+                                                <ul class="uk-subnav uk-subnav-divider" uk-margin>
+                                                    <li>{swac_joinsetsCount} &nbsp;<span swac_lang="stat_oolabels_foundoos">objects with this source.</span></li>
+                                                    <li swac_hideOnEmpty="{responsible_name}"><span swac_lang="data_sources_responsible">Responsible</span> &nbsp;<a href="responsible_url">{responsible_name}</a></li>
+                                                    <li swac_hideOnEmpty="{contact_name}"><span swac_lang="data_sources_contact">Contact</span> &nbsp;<a href="{contact_url}">{contact_name}</a> | <a swac_hideOnEmpty="{contact_email}" href="email:{contact_email}">{contact_email}</a></li>
+                                                    <li swac_hideOnEmpty="{data_actual_api}{data_actual_url}"><span swac_lang="data_sources_actual">Actual data</span> &nbsp;<a swac_hideOnEmpty="{data_actual_api}" href="{data_actual_api}">API</a> | <a swac_hideOnEmpty="{data_actual_url}" href="{data_actual_url}">Website</a></li>
+                                                    <li swac_hideOnEmpty="{data_hist_api}{data_hist_url}"><span swac_lang="data_sources_hist">Historical data</span> &nbsp;<a swac_hideOnEmpty=""{data_hist_api}" href="{data_hist_api}">API</a> | <a swac_hideOnEmpty="{data_hist_url}" href="{data_hist_url}">Website</a></li>
+                                                    <li><span swac_lang="data_sources_license">License</span> &nbsp;<a href="{data_license_url}">{data_license}</a></li>
+                                                </ul>
+                                            </div>
+                                            <ul uk-accordion>
+                                                <li>
+                                                    <span uk-icon="cloud-download"></span><a class="uk-accordion-title" href swac_lang="data_sources_citation">Citation</a>
+                                                    <div class="uk-accordion-content">
+                                                        <p>{citation}</p>
+                                                    </div>
+                                                </li>
+                                                <li swac_hideOnEmpty="{data_actual_api_guide}">
+                                                    <span uk-icon="cloud-download"></span><a class="uk-accordion-title" href swac_lang="data_sources_actual_api_guide">Actual data API guide</a>
+                                                    <div class="uk-accordion-content">
+                                                        <p>{data_actual_api_guide}</p>
+                                                    </div>
+                                                </li>
+                                                <li swac_hideOnEmpty="{data_actual_url_guide}">
+                                                    <span uk-icon="download"></span><a class="uk-accordion-title" href swac_lang="data_sources_actual_url_guide">Actual data URL guide</a>
+                                                    <div class="uk-accordion-content">
+                                                        <p>{data_actual_url_guide}</p>
+                                                    </div>
+                                                </li>
+                                                <li swac_hideOnEmpty="{data_hist_api_guide}">
+                                                    <span uk-icon="cloud-download"></span><a class="uk-accordion-title" href swac_lang="data_sources_hist_api_guide">Historical data API guide</a>
+                                                    <div class="uk-accordion-content">
+                                                        <p>{data_hist_api_guide}</p>
+                                                    </div>
+                                                </li>
+                                                <li swac_hideOnEmpty="{data_hist_url_guide}">
+                                                    <span uk-icon="download"></span><a class="uk-accordion-title" href swac_lang="data_sources_hist_url_guide">Historical data URL guide</a>
+                                                    <div class="uk-accordion-content">
+                                                        <p>{data_hist_url_guide}</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <ul class="swac_forChilds uk-list uk-list-decimal"></ul>
+                                    <hr>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </article>
+        <footer>
+            <a href="about/privacy.html">Privacy policy / Datenschutzerklärung</a>
+            <a href="about/imprint.html">Imprint / Impressum</a>
+            <a class="toplink" href="#">Top</a>
+        </footer>
+    </body>
+</html>

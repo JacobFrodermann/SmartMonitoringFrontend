@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title swac_lang="community_profile_title">Community > Profile</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" type="image/png" href="../../files/icons/logo_round.png">
+        <link rel="stylesheet" type="text/css" href="../../css/global.css">
+        <link rel="stylesheet" type="text/css" href="../../css/profile.css">
+        <link rel="manifest" type="text/json" href="../../manifest.json">
+        <noscript>
+        <link rel="stylesheet" type="text/css" href="../../css/noscript.css">
+        </noscript>
+
+        <link rel="stylesheet" type="text/css" href="/SWAC/swac/libs/uikit/css/uikit.min.css">
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+        <script src="../../js/webPush/groupManager.js"></script>
+        <script src="../../js/webPush/navigation.js" type="module"></script>
+        <script src="../../js/webPush/headerLoader.js"></script>
+        <script src="../../js/webPush/profile.js"></script>
+        <script src="/SWAC/swac/legacybrowser.js"></script>
+    </head>
+    <body>
+        <article class="uk-article">
+            <h2 class="uk-article-title" swac_lang="community_profile_title">Community > Profile</h2>
+            <p class="uk-article-meta" swac_lang="community_profile_desc"></p>
+            
+            This page is TODO. Remove custom styling and use default styleing.
+            
+        </article>
+        
+        
+        
+        <div id="header">
+            <img src="" alt="Logo" id="header_logo">
+            <h1 class="header_title">Profile</h1>
+            <div class="header_right">
+                <span id="header_streak" class="right_text"></span>
+                <img src="../../files/icons/streak.png" class="header_streak_icon">
+            </div>
+        </div>
+        <div id="content"> 
+           <div id="profile_section" class="uk-flex uk-flex-middle uk-flex-center">    
+                <div class="profile_wrapper">
+                    <div class="profile_image_wrapper">
+                        <svg class="progress_ring" viewBox="0 0 180 180" preserveAspectRatio="xMidYMid meet">
+                            <circle class="progress_ring_bg" r="84" cx="90" cy="90"/>
+                            <circle class="progress_ring_progress" r="84" cx="90" cy="90" stroke-dasharray="528" stroke-dashoffset="528"/>
+                        </svg>
+                        <img src="" id="profile_image" class=" uk-border-circle">     
+                    </div> 
+                </div>
+                <div class="profile_side_info">
+                    <div class="side_info" id="level_wrapper">
+                        <img src="../../files/icons/level.png" class="side_info_icon">
+                        <span id="level"></span>
+                    </div>
+                    <div class="side_info" id="streak_wrapper">
+                        <img src="../../files/icons/streak.png" class="side_info_icon">
+                        <span id="streak"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="group_name"></div>
+            <button class="logout-btn" id="logout_btn">
+                <span uk-icon="sign-out"></span>
+                <span>Logout</span>
+            </button>
+
+            <div id="achievement_section" class="uk-section-default">
+                <div id="achievement_header">Achievements</div>
+                <div id="present_achievements" swa="Present TEMPLATE present_webPush_achievements"></div>
+            </div>
+        </div>
+
+        <div class="popup" id="profile_popup">
+            <div class="popup_overlay" id="profile_overlay"></div>
+            <div class="popup_content">               
+                <div id="present_pictures" swa="Present FROM group_picture TEMPLATE present_webPush_images"></div>
+            </div>
+        </div>
+        <div class="popup" id="achievement_popup">
+            <div class="popup_overlay" id="achievement_overlay"></div>
+            <div class="popup_content" id="achievement_popup_content">      
+                <div class="img_row">
+                    <div class="img_box">
+                        <img src="" alt="">
+                        <span class="xp_label"></span>
+                    </div>
+
+                    <div class="img_box img_box_center">
+                        <img src="" alt="">
+                        <span class="xp_label"></span>
+                    </div>
+
+                    <div class="img_box">
+                        <img src="" alt="">
+                        <span class="xp_label"></span>
+                    </div>
+                </div>         
+                <h1 id="achievement_popup_title"></h1>
+                <p id="achievement_popup_description"></p>      
+                <div id="achievement_progress_section"></div>           
+            </div>
+        </div>
+    </body>  
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "Smart Monitoring",
+  "short_name": "SmartMonitoring",
+  "display": "standalone",
+  "start_url": "index.html",
+  "background_color": "#34495e",
+  "theme_color": "#8e44ad",
+  "icons": [
+    {
+      "src": "files/icons/logo.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "subtitle": "Feinstaub PM2.5 (µg/m³)",
+        "type": "",
+        "avail": true,
+        "card_visible_default": true,
+        "data_source": "pm2_5",
+        "data_ts_col": "ts",
+        "data_from_default": "2020-01-01T00:00:00",
+        "data_until_default": "2099-12-31T23:59:59",
+        "data_comp": "Visualise TEMPLATE visualise_without_datatxt",
+        "data_comp_opts": "{visus: [{ attr: 'pm2_5', type: 'CircleValue', datadescription: '#sm_pm25_legend' }]}",
+        "data_from_min": "2000-01-01T00:00:00",
+        "data_until_max": "2099-12-31T23:59:59",
+        "ecomode": false
+    },
+    {
+        "id": 2,
+        "subtitle": "Feinstaub PM10 (µg/m³)",
+        "type": "",
+        "avail": true,
+        "card_visible_default": true,
+        "data_source": "pm10_0",
+        "data_ts_col": "ts",
+        "data_from_default": "2020-01-01T00:00:00",
+        "data_until_default": "2099-12-31T23:59:59",
+        "data_comp": "Visualise TEMPLATE visualise_without_datatxt",
+        "data_comp_opts": "{visus: [{ attr: 'pm10_0', type: 'CircleValue', datadescription: '#sm_pm10_legend' }]}",
+        "data_from_min": "2000-01-01T00:00:00",
+        "data_until_max": "2099-12-31T23:59:59",
+        "ecomode": false
+    }
+]

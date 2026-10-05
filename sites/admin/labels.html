@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title swac_lang="adm_labels_title">Administration > Labels</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="stylesheet" href="../../css/global.css" />
+
+        <link rel="stylesheet" href="/SWAC/swac/libs/uikit/css/uikit.min.css" />
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+
+        <script src="../../js/admin/labels.js"></script>
+
+        <link rel="stylesheet" href="../../customisations/global.css" />
+    </head>
+
+    <body>
+        <nav id="main_navigation" class="swac_navigation_head" swa="Navigation FROM tbl_navigationroute WHERE filter=active,eq,true AND order=id,ASC"></nav>
+        <div id="userform" swa="User"></div>
+        <div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+        <article class="uk-article">
+            <h1 class="uk-article-title" swac_lang="adm_labels">Labels</h1>
+            <p class="uk-article-meta" swac_lang="adm_labels_desc"></p>
+
+            <div id="labeleditor" swa="Present FROM label_labels WHERE order=id,ASC">
+                <ul class="uk-list">
+                    <li class="swac_repeatForSet" swac_parent="{parent}">
+                        <div class="uk-card uk-card-default uk-card-small uk-card-body">
+                            <div uk-grid>
+                                <div class="uk-width-small" swac_hideOnEmpty="{icon}">
+                                    <picture>
+                                        <source srcset="../../files/objecticons/{icon}.avif" type="image/avif">
+                                        <img src="../../files/objecticons/{icon}.png" alt="object icon" width="100" height="100" style="float: left;">
+                                    </picture> 
+                                </div>
+                                <div class="uk-width-expand@m">
+                                    <h3 class="uk-card-title" uk-tooltip="{id}">{name}</h3>
+                                    <span><b>Beschreibung</b>: {description} </span>
+                                    <div swac_hideonempty="{link_title}"><a href="{link_url}">{link_title}</a></div>
+                                </div>
+                            </div>
+
+                            <ul class="swac_forChilds uk-list">
+                                <li class="swac_child">
+                                    <div class="uk-card uk-card-default uk-card-small uk-card-body">
+                                        <div uk-grid>
+                                            <div class="uk-width-small" swac_hideOnEmpty="{icon}">
+                                                <picture>
+                                                    <source srcset="../../files/objecticons/{icon}.avif" type="image/avif">
+                                                    <img src="../../files/objecticons/{icon}.png" alt="object icon" width="100" height="100" style="float: left;">
+                                                </picture> 
+                                            </div>
+                                            <div class="uk-width-expand@m">
+                                                <h3 class="uk-card-title">{name}</h3>
+                                                <span><b>Beschreibung</b>: {description} </span>
+                                                <div swac_hideonempty="{link_title}"><a href="{link_url}">{link_title}</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="swac_forChilds uk-list uk-list-decimal"></ul>
+                                    <hr>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <fieldset>
+                <p swac_lang="adm_labels_add"></p>
+            </fieldset>
+        </article>
+        <div id="favs" swa="Favourites"></div>
+    </body>
+</html>

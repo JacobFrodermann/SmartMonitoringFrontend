@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title swac_lang="datagroups_list_title">Smartmonitoring > Datagroups > List</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="stylesheet" href="../../css/global.css" />
+
+        <link rel="stylesheet" href="/SWAC/swac/libs/uikit/css/uikit.min.css" />
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+
+        <script src="../../js/datastatistic/groups.js"></script>
+        <script src="../../js/general/oo_change.js"></script>
+        
+        <!-- Include customisations -->
+        <script src="../../customisations/data/datadesc.js"></script>
+        <link rel="stylesheet" href="../../customisations/global.css" />
+    </head>
+
+    <body>
+        <nav id="main_navigation" class="swac_navigation_head" swa="Navigation FROM tbl_navigationroute WHERE filter=active,eq,true AND order=id,ASC"></nav>
+        <div id="userform" swa="User"></div>
+        <div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+
+        <div id="oo_change" swa="Select FROM tbl_observedobject WHERE filter=data_collection,nis"></div>
+
+        <article class="uk-article">
+            <h1 class="uk-article-title" swac_lang="datagroups_list_h1">List of datagroups</h1>
+            <p class="uk-article-meta" swac_lang="datagroups_list_desc">This list shows the available datagroups.</p>
+
+            <div id="datalist" swa="Present FROM {{data_collection}} WHERE unique={{groupattr}} AND filter=oo_id,neoeq,{{oo_id}}">
+                <table id="datatable" class="uk-table uk-table-divider uk-table-striped">
+                    <tr>
+                        <th swac_lang="{{groupattr}}">{{groupattr}}</th>
+                        <th class="data_explore_available_sets">Available sets</th>
+                        <th>Options</th>
+                    </tr>
+                    <tr class="swac_repeatForSet">
+                        <td class="func_labels">
+                            {{{groupattr}}}
+                        </td>
+                        <td>
+                            {avail_sets}
+                        </td>
+                        <td class="func_datamap">
+                            <a href="../data/map.html?oo_id={{oo_id}}&data_collection={{data_collection}}&filter={{groupattr}},eq,{{{groupattr}}},comps:datamap">datagroups_list_showonmap</a>
+                            <a href="../data/list.html?oo_id={{oo_id}}&data_collection={{data_collection}}&filter={{groupattr}},eq,{{{groupattr}}},comps:datalist">datagroups_list_showlist</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </article>
+        <div id="favs" swa="Favourites"></div>
+    </body>
+</html>

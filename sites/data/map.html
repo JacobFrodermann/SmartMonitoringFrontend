@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title swac_lang="data_map_title">Data > Map</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="stylesheet" href="../../css/global.css" />
+
+        <link rel="stylesheet" href="/SWAC/swac/libs/uikit/css/uikit.min.css" />
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+        <script src="../../js/data/map.js?ver=17.08.2026.3"></script>
+        <script src="../../js/general/oo_change.js?ver=11.08.2026.1"></script>
+        <script src="../../customisations/data/datadesc.js"></script>
+
+        <link rel="stylesheet" href="../../customisations/global.css" />
+        <link rel="stylesheet" href="../../customisations/data/map.css?ver=08.08.2026.6" />
+    </head>
+
+    <body>
+        <div class="config-box" id="config-box"></div>
+        <nav id="main_navigation" class="swac_navigation_head"
+             swa="Navigation FROM tbl_navigationroute WHERE filter=active,eq,true AND order=id,ASC"></nav>
+        <div id="userform" swa="User"></div>
+        <div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+        <div id="oo_change" swa="Select FROM tbl_observedobject WHERE filter=data_collection,nis AND filter=data_hasgeopos,eq,true AND order=name,ASC"></div>
+
+        <div class="section">
+            <article class="uk-article">
+                <!-- Page title -->
+                <h1 class="uk-heading-bullet" swac_lang="Datamap"></h1>
+                <h2 swac_lang="overall_overview"></h2>
+
+                <!-- Page description -->
+                <p class="uk-article-meta" swac_lang="data_map_desc"></p>
+
+                <!-- Map legend and map -->
+                <div id="datamap_datadescription" class="uk-hidden" swa="Datadescription FROM datadesc"></div>
+                <div uk-grid>
+                    <div class="uk-width-1-1">
+                        <div id="datamap" swa="Worldmap2d FROM {{data_collection}} WHERE filter=pos,nis AND order=ts,DESC AND size=200"></div>
+                    </div>
+                </div>
+                <section id="datamap_route_detail" class="datamap-route-detail" hidden>
+                    <div class="datamap-route-detail-header">
+                        <div>
+                            <h2 id="datamap_route_detail_title" class="uk-margin-remove"></h2>
+                            <p class="uk-article-meta" swac_lang="data_map_route_points_desc"></p>
+                        </div>
+                        <button id="datamap_route_detail_back" class="uk-button uk-button-default uk-button-small" type="button" swac_lang="data_map_back_station"></button>
+                    </div>
+                    <div class="datamap-route-points-wrapper">
+                        <table id="datamap_route_points" class="uk-table uk-table-divider uk-table-striped datamap-route-points"></table>
+                    </div>
+                </section>
+                <div id="datamap_routes"></div>
+            </article>
+        </div>
+        <div id="favs" swa="Favourites"></div>
+    </body>
+
+</html>

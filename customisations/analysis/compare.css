@@ -1,0 +1,161 @@
+.station_compare {
+    display: grid;
+    gap: 18px;
+    padding: 18px 0;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.station_compare_global {
+    display: grid;
+    grid-template-columns: minmax(150px, .7fr) minmax(280px, 1.25fr) minmax(280px, 1.25fr) minmax(180px, .9fr) auto;
+    gap: 12px;
+    align-items: end;
+}
+
+.station_compare_global label > span:first-child,
+.station_compare_label,
+.station_compare_stationrow label > span:first-child {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.station_compare_togglebar {
+    display: flex;
+}
+
+.station_compare_period_controls {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 104px !important;
+    gap: 8px;
+}
+
+.station_compare_same_time {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    min-height: 40px;
+    white-space: nowrap;
+}
+
+.station_compare_attribute_field {
+    margin: 0;
+}
+
+.station_compare_individual_control {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin: 0;
+    font-size: 13px;
+}
+
+.station_compare_individual_from_control {
+    grid-column: 2;
+}
+
+.station_compare_individual_to_control {
+    grid-column: 3;
+}
+
+.station_compare_individual_attributes_control {
+    grid-column: 4;
+}
+
+.station_compare_aggregation_controls {
+    display: flex;
+    gap: 8px;
+}
+
+#station_compare_aggregation_amount {
+    width: 90px;
+}
+
+.station_compare_aggregation_controls select {
+    min-width: 150px;
+}
+
+.station_compare_stationlist {
+    display: grid;
+    gap: 0;
+    margin-bottom: 12px;
+}
+
+.station_compare_stationrow {
+    display: grid;
+    grid-template-columns: minmax(220px, 1.1fr) minmax(280px, 1.25fr) minmax(280px, 1.25fr) minmax(180px, .9fr) 32px;
+    gap: 12px;
+    align-items: end;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.station_compare_stationrow label {
+    margin: 0;
+}
+
+.station_compare_remove {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+}
+
+.station_compare_actions {
+    display: flex;
+    gap: 8px;
+}
+
+.station_compare_status {
+    min-height: 24px;
+    margin-top: 16px;
+    color: #666;
+}
+
+.station_compare_result {
+    margin-top: 8px;
+    overflow-x: auto;
+}
+
+.station_compare_chart {
+    position: relative;
+    min-height: 440px;
+    min-width: 680px;
+}
+
+.station_compare_table {
+    margin-top: 0;
+    white-space: nowrap;
+}
+
+.station_compare_value {
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 1100px) {
+    .station_compare_global {
+        grid-template-columns: repeat(2, minmax(260px, 1fr));
+    }
+
+    .station_compare_stationrow {
+        grid-template-columns: repeat(2, minmax(260px, 1fr)) 32px;
+    }
+
+    .station_compare_individual_control {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 650px) {
+    .station_compare_global,
+    .station_compare_stationrow {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .station_compare_global label,
+    .station_compare_global button,
+    .station_compare_stationrow label {
+        grid-column: 1 / -1;
+    }
+
+}

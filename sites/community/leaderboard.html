@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title swac_lang="community_leaderbord_title">Community > Leaderboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" type="image/png" href="../../files/icons/logo_round.png">
+        <link rel="stylesheet" type="text/css" href="../../css/global.css">
+        <link rel="stylesheet" type="text/css" href="../../css/leaderboard.css">
+        <link rel="manifest" type="text/json" href="../../manifest.json">
+        <noscript>
+        <link rel="stylesheet" type="text/css" href="../../css/noscript.css">
+        </noscript>
+
+        <link rel="stylesheet" type="text/css" href="/SWAC/swac/libs/uikit/css/uikit.min.css">
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+        <script src="../../js/webPush/groupManager.js"></script>
+        <script src="../../js/webPush/navigation.js" type="module"></script>
+        <script src="../../js/webPush/headerLoader.js"></script>
+        <script src="../../js/webPush/leaderboard.js" type="module"></script>
+    </head>
+    <body>
+        <nav id="main_navigation" class="swac_navigation_head" swa="Navigation FROM tbl_navigationroute WHERE filter=active,eq,true AND order=id,ASC"></nav>
+        <div id="userform" swa="User"></div>
+        <div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+        
+        <article class="uk-article">
+            <h2 class="uk-article-title" swac_lang="community_leaderbord_title">Community > Leaderboard</h2>
+            <p class="uk-article-meta" swac_lang="community_leaderboard_desc"></p>
+            
+            This page is TODO. Remove custom styling and use default styleing.
+            
+        </article>
+        
+        <div id="header">
+            <img src="" alt="Logo" id="header_logo">
+            <h1 class="header_title">Leaderboard</h1>
+            <div class="header_right">
+                <span id="header_streak" class="right_text"></span>
+                <img src="../../files/icons/streak.png" class="header_streak_icon">
+            </div>
+        </div>
+        <div id="content">  
+            <div id="leaderboard" swa="Present FROM view_leaderboard TEMPLATE present_leaderboard"></div>
+        </div>
+        <div id="navigation" swa="Navigation FROM routes.json TEMPLATE nav_webPush_mobile"></div>
+    </body>
+</html>

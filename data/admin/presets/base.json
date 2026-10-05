@@ -1,0 +1,1172 @@
+{
+    "list": [
+        {
+            "name": "Base tables",  
+            "desc": "SmartMonitoring base tables",
+            "version": "3.0 Alpha",
+            "state": [
+                {
+                    "name": "tbl_ootype",
+                    "type": "rest",
+                    "method": "defs",
+                    "fromName": "tbl_ootype"
+                },
+                {
+                    "name": "tbl_metatype",
+                    "type": "rest",
+                    "method": "defs",
+                    "fromName": "tbl_metatype"
+                },
+                {
+                    "name": "tbl_datatype",
+                    "type": "rest",
+                    "method": "defs",
+                    "fromName": "tbl_datatype"
+                },
+                {
+                    "name": "tbl_observedobject",
+                    "type": "rest",
+                    "method": "defs",
+                    "fromName": "tbl_observedobject"
+                },
+                {
+                    "name": "tbl_location",
+                    "type": "rest",
+                    "method": "defs",
+                    "fromName": "tbl_location"
+                },
+                {
+                    "name": "tbl_location_join_oo",
+                    "type": "rest",
+                    "method": "defs",
+                    "fromName": "tbl_location_join_oo"
+                }
+            ],
+            "collections": [
+                {
+                    "name": "tbl_ootype",
+                    "fromName": "tbl_ootype",
+                    "method": "cdefs",
+                    "body": {
+                        "name": "tbl_ootype",
+                        "attributes": [
+                            {
+                                "isIdentity": true,
+                                "isAutoIncrement": true,
+                                "isNullable": false,
+                                "name": "id",
+                                "type": "bigserial"
+                            },
+                            {
+                                "name": "name",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "description",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "icon",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "flattendsets",
+                                "type": "bool"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "tbl_metatype",
+                    "fromName": "tbl_metatype",
+                    "method": "cdefs",
+                    "body": {
+                        "name": "tbl_metatype",
+                        "attributes": [
+                            {
+                                "isIdentity": true,
+                                "isAutoIncrement": true,
+                                "isNullable": false,
+                                "name": "id",
+                                "type": "bigserial"
+                            },
+                            {
+                                "name": "name",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "description",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "icon",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "type",
+                                "type": "varchar(45)"
+                            },
+                            {
+                                "name": "unit",
+                                "type": "varchar(45)"
+                            },
+                            {
+                                "name": "possiblevalues",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "isidentity",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "isnullable",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "isautoincrement",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "refcollection",
+                                "type": "varchar"
+                            },
+                            {
+                                "name": "refattribute",
+                                "type": "varchar"
+                            },
+                            {
+                                "name": "refstorage",
+                                "type": "varchar"
+                            },
+                            {
+                                "name": "refondelete",
+                                "type": "varchar"
+                            },
+                            {
+                                "name": "refonupdate",
+                                "type": "varchar"
+                            },
+                            {
+                                "name": "ootype_id",
+                                "type": "int8"
+                            },
+                            {
+                                "name": "editable",
+                                "type": "bool"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "tbl_datatype",
+                    "fromName": "tbl_datatype",
+                    "method": "cdefs",
+                    "body": {
+                        "name": "tbl_datatype",
+                        "attributes": [
+                            {
+                                "isIdentity": true,
+                                "isAutoIncrement": true,
+                                "isNullable": false,
+                                "name": "id",
+                                "type": "bigserial"
+                            },
+                            {
+                                "name": "name",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "description",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "icon",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "type",
+                                "type": "varchar(45)"
+                            },
+                            {
+                                "name": "unit",
+                                "type": "varchar(45)"
+                            },
+                            {
+                                "name": "possiblevalues",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "isidentity",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "isnullable",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "isautoincrement",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "refcollection",
+                                "type": "varchar"
+                            },
+                            {
+                                "name": "refattribute",
+                                "type": "varchar"
+                            },
+                            {
+                                "name": "refstorage",
+                                "type": "varchar"
+                            },
+                            {
+                                "name": "refondelete",
+                                "type": "varchar"
+                            },
+                            {
+                                "name": "refonupdate",
+                                "type": "varchar"
+                            },
+                            {
+                                "name": "ootype_id",
+                                "type": "int8"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "tbl_observedobject",
+                    "fromName": "tbl_observedobject",
+                    "method": "cdefs",
+                    "body": {
+                        "name": "tbl_observedobject",
+                        "attributes": [
+                            {
+                                "isIdentity": true,
+                                "isAutoIncrement": true,
+                                "isNullable": false,
+                                "name": "id",
+                                "type": "bigserial"
+                            },
+                            {
+                                "name": "name",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "description",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "mac",
+                                "type": "varchar(64)"
+                            },
+                            {
+                                "name": "ip",
+                                "type": "varchar(64)"
+                            },
+                            {
+                                "name": "icon",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "manualcapture",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "datacapture",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "data_collection",
+                                "type": "varchar(64)"
+                            },
+                            {
+                                "name": "measurerate",
+                                "type": "int4"
+                            },
+                            {
+                                "name": "meta_collection",
+                                "type": "varchar(64)"
+                            },
+                            {
+                                "name": "ootype_id",
+                                "type": "int8"
+                            },
+                            {
+                                "name": "parent_id",
+                                "type": "int8"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "tbl_location",
+                    "fromName": "tbl_location",
+                    "method": "cdefs",
+                    "body": {
+                        "name": "tbl_location",
+                        "attributes": [
+                            {
+                                "isIdentity": true,
+                                "isAutoIncrement": true,
+                                "isNullable": false,
+                                "name": "id",
+                                "type": "bigserial"
+                            },
+                            {
+                                "name": "name",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "description",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "street",
+                                "type": "varchar(64)"
+                            },
+                            {
+                                "name": "houseno",
+                                "type": "varchar(64)"
+                            },
+                            {
+                                "name": "postcode",
+                                "type": "varchar(10)"
+                            },
+                            {
+                                "name": "city",
+                                "type": "varchar(64)"
+                            },
+                            {
+                                "name": "country",
+                                "type": "varchar(64)"
+                            },
+                            {
+                                "name": "floor",
+                                "type": "varchar(64)"
+                            },
+                            {
+                                "name": "apartment",
+                                "type": "varchar(64)"
+                            },
+                            {
+                                "name": "room",
+                                "type": "varchar(64)"
+                            },
+                            {
+                                "name": "coordinates",
+                                "type": "geometry(PointZ,4326)"
+                            },
+                            {
+                                "name": "parent_id",
+                                "type": "int8"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "tbl_location_join_oo",
+                    "fromName": "tbl_location_join_oo",
+                    "method": "cdefs",
+                    "body": {
+                        "name": "tbl_location_join_oo",
+                        "attributes": [
+                            {
+                                "isIdentity": true,
+                                "isAutoIncrement": true,
+                                "isNullable": false,
+                                "name": "id",
+                                "type": "bigserial"
+                            },
+                            {
+                                "name": "valid_from",
+                                "type": "timestamp"
+                            },
+                            {
+                                "name": "valid_until",
+                                "type": "timestamp"
+                            },
+                            {
+                                "name": "loc_id",
+                                "type": "int8"
+                            },
+                            {
+                                "name": "oo_id",
+                                "type": "int8"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },{
+            "name": "Navigationsmenü",  
+            "desc": "Erstellung des Navigationsmenüs",
+            "version": "3.0 Alpha",
+            "state": [
+                {
+                    "name": "tbl_navigationroute",
+                    "type": "rest",
+                    "method": "defs",
+                    "fromName": "tbl_navigationroute"
+                }
+            ],
+            "collections": [
+                {
+                    "name": "tbl_navigationroute",
+                    "fromName": "tbl_navigationroute",
+                    "method": "cdefs",
+                    "body": {
+                        "name": "tbl_navigationroute",
+                        "attributes": [
+                            {
+                                "isIdentity": true,
+                                "isAutoIncrement": true,
+                                "isNullable": false,
+                                "name": "id",
+                                "type": "bigserial"
+                            },
+                            {
+                                "name": "name",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "icon",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "rfrom",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "rto",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "parent",
+                                "type": "int8"
+                            },
+                            {
+                                "name": "active",
+                                "type": "bool"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "data": [
+                {
+                    "name": "tbl_navigationroute",
+                    "fromName": "tbl_navigationroute",
+                    "method": "create",
+                    "body": [
+                        {
+                            "id": 100,
+                            "name": "menu_object",
+                            "rfrom": "*",
+                            "rto": "#",
+                            "active": true
+                        },
+                        {
+                            "id": 101,
+                            "name": "menu_object_list",
+                            "rfrom": "*",
+                            "rto": "object/list.html",
+                            "parent": 100,
+                            "active": true
+                        }, 
+                        {
+                            "id": 102,
+                            "name": "menu_object_dashboard",
+                            "rfrom": "*",
+                            "rto": "object/dashboard.html",
+                            "parent": 100,
+                            "active": true
+                        },
+                        {
+                            "id": 103,
+                            "name": "menu_object_create",
+                            "rfrom": "*",
+                            "rto": "object/create.html",
+                            "parent": 100,
+                            "active": true
+                        },
+                        {
+                            "id": 104,
+                            "name": "menu_object_sheme",
+                            "rfrom": "*",
+                            "rto": "object/scheme.html",
+                            "parent": 100,
+                            "active": false
+                        },
+                        {
+                            "id": 200,
+                            "name": "menu_objectmap",
+                            "rfrom": "*",
+                            "rto": "object/map.html",
+                            "parent": 100,
+                            "active": false
+                        },
+                        {
+                            "id": 300,
+                            "name": "menu_objectstat",
+                            "rfrom": "*",
+                            "rto": "#",
+                            "active": false
+                        },
+                        {
+                            "id": 301,
+                            "name": "menu_objectstat_locmissing",
+                            "rfrom": "*",
+                            "rto": "objectstatistic/locmissing.html",
+                            "parent": 300,
+                            "active": false
+                        },
+                        {
+                            "id": 302,
+                            "name": "menu_objectstat_locneighbors",
+                            "rfrom": "*",
+                            "rto": "objectstatistic/locneighbors.html",
+                            "parent": 300,
+                            "active": false
+                        },
+                        {
+                            "id": 303,
+                            "name": "menu_objectstat_ootypes",
+                            "rfrom": "*",
+                            "rto": "objectstatistic/ootypes.html",
+                            "parent": 300,
+                            "active": false
+                        },
+                        {
+                            "id": 304,
+                            "name": "menu_objectstat_oolabels",
+                            "rfrom": "*",
+                            "rto": "objectstatistic/oolabels.html",
+                            "parent": 300,
+                            "active": false
+                        },
+                        {
+                            "id": 400,
+                            "name": "menu_data",
+                            "rfrom": "*",
+                            "rto": "#",
+                            "active": true
+                        },
+                        {
+                            "id": 401,
+                            "name": "menu_data_upload",
+                            "rfrom": "*",
+                            "rto": "data/upload.html",
+                            "parent": 400,
+                            "active": false
+                        },
+                        {
+                            "id": 402,
+                            "name": "menu_data_collect",
+                            "rfrom": "*",
+                            "rto": "data/collect.html",
+                            "parent": 400,
+                            "active": false
+                        },
+                        {
+                            "id": 403,
+                            "name": "menu_data_survey",
+                            "rfrom": "*",
+                            "rto": "data/survey.html",
+                            "parent": 400,
+                            "active": false
+                        },
+                        {
+                            "id": 404,
+                            "name": "menu_data_sync",
+                            "rfrom": "*",
+                            "rto": "data/sync.html",
+                            "parent": 400,
+                            "active": false
+                        },
+                        {
+                            "id": 405,
+                            "name": "menu_data_api",
+                            "rfrom": "*",
+                            "rto": "data/api.html",
+                            "parent": 400,
+                            "active": false
+                        },
+                        {
+                            "id": 406,
+                            "name": "menu_data_sources",
+                            "rfrom": "*",
+                            "rto": "data/sources.html",
+                            "parent": 400,
+                            "active": false
+                        },
+                        {
+                            "id": 407,
+                            "name": "menu_data_pipelines",
+                            "rfrom": "*",
+                            "rto": "data/pipelines.html",
+                            "parent": 400,
+                            "active": false
+                        },
+                        {
+                            "id": 500,
+                            "name": "menu_datavisus",
+                            "rfrom": "*",
+                            "rto": "#",
+                            "parent": 400,
+                            "active": true
+                        },
+                        {
+                            "id": 501,
+                            "name": "menu_datavisus_charts",
+                            "rfrom": "*",
+                            "rto": "datavisus/charts.html",
+                            "parent": 500,
+                            "active": true
+                        },
+                        {
+                            "id": 502,
+                            "name": "menu_datavisus_iconic",
+                            "rfrom": "*",
+                            "rto": "datavisus/iconic.html",
+                            "parent": 500,
+                            "active": true
+                        },
+                        {
+                            "id": 600,
+                            "name": "menu_datastat",
+                            "rfrom": "*",
+                            "rto": "#",
+                            "active": true
+                        },
+                        {
+                            "id": 601,
+                            "name": "menu_datastat_database",
+                            "rfrom": "*",
+                            "rto": "datastatistic/database.html",
+                            "parent": 600,
+                            "active": false
+                        },
+                        {
+                            "id": 602,
+                            "name": "menu_datastat_objects",
+                            "rfrom": "*",
+                            "rto": "datastatistic/objects.html",
+                            "parent": 600,
+                            "active": false
+                        },
+                        {
+                            "id": 603,
+                            "name": "menu_datastat_object",
+                            "rfrom": "*",
+                            "rto": "datastatistic/object.html",
+                            "parent": 600,
+                            "active": false
+                        },
+                        {
+                            "id": 604,
+                            "name": "menu_datastat_missing",
+                            "rfrom": "*",
+                            "rto": "datastatistic/datamissing.html",
+                            "parent": 600,
+                            "active": false
+                        },
+                        {
+                            "id": 605,
+                            "name": "menu_datastat_groups",
+                            "rfrom": "*",
+                            "rto": "datastatistic/groups.html",
+                            "parent": 600,
+                            "active": false
+                        },
+                        {
+                            "id": 700,
+                            "name": "menu_dataanalysis",
+                            "rfrom": "*",
+                            "rto": "#",
+                            "active": true
+                        },
+                        {
+                            "id": 701,
+                            "name": "menu_data_analysis_list",
+                            "rfrom": "*",
+                            "rto": "analysis/list.html",
+                            "parent": 700,
+                            "active": false
+                        },
+                        {
+                            "id": 702,
+                            "name": "menu_data_analysis_compare",
+                            "rfrom": "*",
+                            "rto": "analysis/compare.html",
+                            "parent": 700,
+                            "active": false
+                        },
+                        {
+                            "id": 800,
+                            "name": "menu_datamap",
+                            "rfrom": "*",
+                            "rto": "data/map.html",
+                            "parent": 400,
+                            "active": false
+                        },
+                        {
+                            "id": 900,
+                            "name": "menu_labeling",
+                            "rfrom": "*",
+                            "rto": "#",
+                            "active": false
+                        },
+                        {
+                            "id": 901,
+                            "name": "menu_labels",
+                            "rfrom": "*",
+                            "rto": "labeling/labels.html",
+                            "parent": 900,
+                            "active": false
+                        },
+                        {
+                            "id": 1000,
+                            "name": "menu_media",
+                            "rfrom": "*",
+                            "rto": "#",
+                            "active": true
+                        },
+                        {
+                            "id": 1001,
+                            "name": "menu_media_gallery",
+                            "rfrom": "*",
+                            "rto": "media/gallery.html",
+                            "parent": 1000,
+                            "active": true
+                        },
+                        {
+                            "id": 1002,
+                            "name": "menu_media_upload",
+                            "rfrom": "*",
+                            "rto": "media/upload.html",
+                            "parent": 1000,
+                            "active": true
+                        },
+                        {
+                            "id": 1004,
+                            "name": "menu_media_editor",
+                            "rfrom": "*",
+                            "rto": "media/editor.html",
+                            "parent": 1000,
+                            "active": true
+                        },
+                        {
+                            "id": 1200,
+                            "name": "menu_community",
+                            "rfrom": "*",
+                            "rto": "#",
+                            "active": false
+                        },
+                        {
+                            "id": 1201,
+                            "name": "menu_community_profile",
+                            "rfrom": "*",
+                            "rto": "community/profile.html",
+                            "parent": 1200,
+                            "active": false
+                        },
+                        {
+                            "id": 1202,
+                            "name": "menu_community_leaderboard",
+                            "rfrom": "*",
+                            "rto": "community/leaderboard.html",
+                            "parent": 1200,
+                            "active": false
+                        },
+                        {
+                            "id": 9000,
+                            "name": "menu_admin",
+                            "rfrom": "*",
+                            "rto": "#",
+                            "active": true
+                        },
+                        {
+                            "id": 9001,
+                            "name": "menu_admin_functions",
+                            "rfrom": "*",
+                            "rto": "admin/functions.html",
+                            "parent": 9000,
+                            "active": true
+                        },
+                        {
+                            "id": 9002,
+                            "name": "menu_admin_layout",
+                            "rfrom": "*",
+                            "rto": "admin/layout.html",
+                            "parent": 9000,
+                            "active": true
+                        },
+                        {
+                            "id": 9003,
+                            "name": "menu_admin_objecttypes",
+                            "rfrom": "*",
+                            "rto": "admin/objecttypes.html",
+                            "parent": 9000,
+                            "active": true
+                        },
+                        {
+                            "id": 9004,
+                            "name": "menu_admin_labels",
+                            "rfrom": "*",
+                            "rto": "admin/labels.html",
+                            "parent": 9000,
+                            "active": true
+                        },
+                        {
+                            "id": 9100,
+                            "name": "menu_about",
+                            "rfrom": "*",
+                            "rto": "#",
+                            "active": true
+                        },
+                        {
+                            "id": 9101,
+                            "name": "menu_about_privacy",
+                            "rfrom": "*",
+                            "rto": "about/privacy.html",
+                            "parent": 9100,
+                            "active": true
+                        },
+                        {
+                            "id": 9102,
+                            "name": "menu_about_imprint",
+                            "rfrom": "*",
+                            "rto": "about/imprint.html",
+                            "parent": 9100,
+                            "active": true
+                        },
+                        {
+                            "id": 9103,
+                            "name": "menu_about_system",
+                            "rfrom": "*",
+                            "rto": "about/system.html",
+                            "parent": 9100,
+                            "active": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Admin Funktionsverwaltung",
+            "desc": "Erstellung der Admin Funktionsverwaltung",
+            "version": "3.0 Alpha",
+            "state": [
+                {
+                    "name": "tbl_systemconfiguration",
+                    "type": "rest",
+                    "method": "defs",
+                    "fromName": "tbl_systemconfiguration"
+                }
+            ],
+            "collections": [
+                {
+                    "name": "tbl_systemconfiguration",
+                    "fromName": "tbl_systemconfiguration",
+                    "method": "cdefs",
+                    "body": {
+                        "name": "tbl_systemconfiguration",
+                        "attributes": [
+                            {
+                                "isIdentity": true,
+                                "isAutoIncrement": true,
+                                "isNullable": false,
+                                "name": "id",
+                                "type": "bigserial"
+                            },
+                            {
+                                "name": "ckey",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "ctype",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "cvalue",
+                                "type": "varchar(255)"
+                            },
+                            {
+                                "name": "active",
+                                "type": "bool"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "data": [
+                {
+                    "name": "tbl_systemconfiguration",
+                    "fromName": "tbl_systemconfiguration",
+                    "method": "create",
+                    "checkfor": "ckey",
+                    "body": [
+                        {
+                            "id": 101,
+                            "ckey": "func_object_list",
+                            "active": true
+                        },
+                        {
+                            "id": 102,
+                            "ckey": "func_object_dashboard",
+                            "active": false
+                        },
+                        {
+                            "id": 103,
+                            "ckey": "func_object_create",
+                            "active": false
+                        },
+                        {
+                            "id": 104,
+                            "ckey": "func_object_sheme",
+                            "active": false
+                        },
+                        {
+                            "id": 200,
+                            "ckey": "func_objectmap",
+                            "active": false
+                        },
+                        {
+                            "id": 201,
+                            "ckey": "func_objectmap_createobject",
+                            "active": false
+                        },
+                        {
+                            "id": 211,
+                            "ckey": "func_objectmap_objectdata_show",
+                            "active": false
+                        },
+                        {
+                            "id": 212,
+                            "ckey": "func_objectmap_objectdata_edit",
+                            "active": false
+                        },
+                        {
+                            "id": 213,
+                            "ckey": "func_objectmap_filter",
+                            "active": false
+                        },
+                        {
+                            "id": 221,
+                            "ckey": "func_objectmap_navigation",
+                            "active": false
+                        },
+                        {
+                            "id": 222,
+                            "ckey": "func_objectmap_search",
+                            "active": false
+                        },
+                        {
+                            "id": 231,
+                            "ckey": "func_objectmap_labels",
+                            "active": false
+                        },
+                        {
+                            "id": 301,
+                            "ckey": "func_objectstat_locmissing",
+                            "active": false
+                        },
+                        {
+                            "id": 302,
+                            "ckey": "func_objectstat_locneighbors",
+                            "active": false
+                        },
+                        {
+                            "id": 303,
+                            "ckey": "func_objectstat_ootypes",
+                            "active": false
+                        },
+                        {
+                            "id": 304,
+                            "ckey": "func_objectstat_oolabels",
+                            "active": false
+                        },
+                        
+                        {
+                            "id": 401,
+                            "ckey": "func_data_upload",
+                            "active": false
+                        },
+                        {
+                            "id": 402,
+                            "ckey": "func_data_collect",
+                            "active": false
+                        },
+                        {
+                            "id": 403,
+                            "ckey": "func_data_survey",
+                            "active": false
+                        },
+                        {
+                            "id": 404,
+                            "ckey": "func_data_sync",
+                            "active": false
+                        },
+                        {
+                            "id": 405,
+                            "ckey": "func_data_api",
+                            "active": false
+                        },
+                        {
+                            "id": 406,
+                            "ckey": "func_data_manage_sources",
+                            "active": false
+                        },
+                        {
+                            "id": 407,
+                            "ckey": "func_data_pipelines",
+                            "active": false
+                        },
+                        {
+                            "id": 501,
+                            "ckey": "func_datavisus_charts",
+                            "active": false
+                        },
+                        {
+                            "id": 502,
+                            "ckey": "func_datavisus_iconic",
+                            "active": false
+                        },
+                        {
+                            "id": 601,
+                            "ckey": "datafunc_stat_database",
+                            "active": false
+                        },
+                        {
+                            "id": 602,
+                            "ckey": "datafunc_stat_objects",
+                            "active": false
+                        },
+                        {
+                            "id": 603,
+                            "ckey": "datafunc_stat_object",
+                            "active": false
+                        },
+                        
+                        {
+                            "id": 604,
+                            "ckey": "func_datastat_missing",
+                            "active": false
+                        },
+                        {
+                            "id": 605,
+                            "ckey": "func_datastat_groups",
+                            "active": false
+                        },
+                        {
+                            "id": 701,
+                            "ckey": "func_data_analysis_list",
+                            "active": false
+                        },
+                        {
+                            "id": 702,
+                            "ckey": "func_data_analysis_compare",
+                            "active": false
+                        },
+                        {
+                            "id": 800,
+                            "ckey": "func_datamap",
+                            "active": false
+                        },
+                        {
+                            "id": 811,
+                            "ckey": "func_datamap_data_show",
+                            "active": false
+                        },
+                        {
+                            "id": 812,
+                            "ckey": "func_datamap_data_edit",
+                            "active": false
+                        },
+                        {
+                            "id": 813,
+                            "ckey": "func_datamap_timeline",
+                            "active": false
+                        },
+                        {
+                            "id": 814,
+                            "ckey": "func_datamap_filter",
+                            "active": false
+                        },
+                        {
+                            "id": 821,
+                            "ckey": "func_datamap_search",
+                            "active": false
+                        },
+                        {
+                            "id": 822,
+                            "ckey": "func_datamap_navigation",
+                            "active": false
+                        },
+                        {
+                            "id": 831,
+                            "ckey": "func_datamap_datalabels",
+                            "active": false
+                        },
+                        {
+                            "id": 901,
+                            "ckey": "func_labeling",
+                            "active": false
+                        },
+                        {
+                            "id": 902,
+                            "ckey": "func_labeling_object",
+                            "active": false
+                        },
+                        {
+                            "id": 903,
+                            "ckey": "func_labeling_data",
+                            "active": false
+                        },
+                        {
+                            "id": 904,
+                            "ckey": "func_labeling_media",
+                            "active": false
+                        },
+                        {
+                            "id": 1001,
+                            "ckey": "func_media_galery",
+                            "active": false
+                        },
+                        {
+                            "id": 1002,
+                            "ckey": "func_media_upload",
+                            "active": false
+                        },
+                        {
+                            "id": 1003,
+                            "ckey": "func_media_references",
+                            "active": false
+                        },
+                        {
+                            "id": 1004,
+                            "ckey": "func_media_editor",
+                            "active": false
+                        },
+                        {
+                            "id": 1101,
+                            "ckey": "func_userlogin",
+                            "active": false
+                        },
+                        {
+                            "id": 1102,
+                            "ckey": "func_userdashboard",
+                            "active": false
+                        },
+                        {
+                            "id": 1003,
+                            "ckey": "func_userfavs",
+                            "active": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,164 @@
+{
+    "list": [
+        {
+            "name": "OpenWeatherMap - Wetterdaten",
+            "desc": "Messwert- und Objekt-typen für die Erfassung von Daten aus der OpenWeatherMap Schnittstelle.",
+            "version": "3.0 Alpha",
+            "state": [
+                {
+                    "name": "tbl_observedobject_type_Wetterdaten",
+                    "type": "rest",
+                    "method": "get",
+                    "fromName": "tbl_ootype",
+                    "filter": "name,eq,Wetterdaten"
+                },
+                {
+                    "name": "tbl_datatype_ts",
+                    "type": "rest",
+                    "method": "get",
+                    "fromName": "tbl_datatype",
+                    "filter": "name,eq,ts"
+                },
+                {
+                    "name": "tbl_datatype_winddir",
+                    "type": "rest",
+                    "method": "get",
+                    "fromName": "tbl_datatype",
+                    "filter": "name,eq,winddir"
+                },
+                {
+                    "name": "tbl_datatype_humidity",
+                    "type": "rest",
+                    "method": "get",
+                    "fromName": "tbl_datatype",
+                    "filter": "name,eq,humidity"
+                },
+                {
+                    "name": "tbl_datatype_pressure",
+                    "type": "rest",
+                    "method": "get",
+                    "fromName": "tbl_datatype",
+                    "filter": "name,eq,pressure"
+                },
+                {
+                    "name": "tbl_datatype_temp",
+                    "type": "rest",
+                    "method": "get",
+                    "fromName": "tbl_datatype",
+                    "filter": "name,eq,temp"
+                },
+                {
+                    "name": "tbl_datatype_windspeed",
+                    "type": "rest",
+                    "method": "get",
+                    "fromName": "tbl_datatype",
+                    "filter": "name,eq,windspeed"
+                }
+            ],
+            "data": [
+                {
+                    "name": "tbl_measurement_type_ts",
+                    "method": "POST",
+                    "fromName": "tbl_datatype",
+                    "body": [
+                            {
+                                "name": "ts",
+                                "description": "Zeitstempel",
+                                "type": "timestamp"
+                            }
+                        ]
+                },
+                {
+                    "name": "tbl_measurement_type_Grad",
+                    "method": "post",
+                    "fromName": "tbl_datatype",
+                    "body": [
+                            {
+                                "unit": "deg",
+                                "name": "Grad",
+                                "description": "Grad",
+                                "type": "float8"
+                            }
+                        ]
+                },
+                {
+                    "name": "tbl_measurement_type_Prozentsatz",
+                    "method": "post",
+                    "fromName": "tbl_datatype",
+                    "body": [
+                            {
+                                "unit": "%",
+                                "name": "Prozentsatz",
+                                "description": "Prozentsatz",
+                                "type": "float8"
+                            }
+                        ]
+                },
+                {
+                    "name": "tbl_measurement_type_Druck",
+                    "method": "post",
+                    "fromName": "tbl_datatype",
+                    "body": [
+                            {
+                                "unit": "hPa",
+                                "name": "Druck",
+                                "description": "Druck",
+                                "type": "float8"
+                            }
+                        ]
+                },
+                {
+                    "name": "tbl_measurement_type_Temperatur",
+                    "method": "post",
+                    "fromName": "tbl_datatype",
+                    "body": [
+                            {
+                                "unit": "°C",
+                                "name": "Temperatur",
+                                "description": "Temperatur",
+                                "type": "float8"
+                            }
+                        ]
+                },
+                {
+                    "name": "tbl_measurement_type_Geschwindigkeit",
+                    "method": "post",
+                    "fromName": "tbl_datatype",
+                    "body": [
+                            {
+                                "unit": "km/h",
+                                "name": "Geschwindigkeit",
+                                "description": "Geschwindigkeit",
+                                "type": "float8"
+                            }
+                        ]
+                },
+                {
+                    "name": "tbl_observedobject_type_Wetterdaten",
+                    "method": "POST",
+                    "fromName": "tbl_datatype",
+                    "body": [
+                        {
+                            "flatendsets": false,
+                            "name": "Wetterdaten",
+                            "description": "Erfassung von Wetterdaten"
+                        }
+                    ]
+                },
+                {
+                    "name": "tbl_ootype_join_mtype_Zeitpunkt der Messung",
+                    "method": "POST",
+                    "fromName": "tbl_datatype",
+                    "body": [
+                        {
+                            "measurementtype_name": "ts",
+                            "name": "Zeitpunkt der Messung",
+                            "description": "Zeitstempel",
+                            "observedobjecttype_name": "Wetterdaten"
+                        } 
+                    ]
+                }
+            ]
+        }
+    ]
+}

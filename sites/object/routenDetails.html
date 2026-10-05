@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title swac_lang="data_route_title">Data > List > Route</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+  <link rel="stylesheet" href="../../customisations/global.css" />
+  <link rel="stylesheet" href="../../css/global.css" />
+  <link rel="stylesheet" href="/SWAC/swac/libs/uikit/css/uikit.min.css" />
+  <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+  <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+  <script src="/SWAC/swac/swac.js" type="module"></script>
+  <script src="../../js/object/routenDetails.js"></script>
+  <script src="../../js/object/durationCalculator.js"></script>
+  <script src="../../js/object/tableFilter.js"></script>
+
+  <!-- Google Icons + Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="config-box" id="config-box"></div>
+  <nav id="main_navigation" class="swac_navigation_head"
+    swa="Navigation FROM tbl_navigationroute WHERE filter=active,eq,true AND order=id,ASC"></nav>
+  <div id="userform" swa="User"></div>
+  <div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+
+
+  <div class="section">
+    <!-- Name and type-->
+    <div id="objectlist" swa="Select FROM tbl_observedobject WHERE filter=id,eq,{id}">
+      <div>
+        <h1 class="uk-heading-bullet" swac_lang="route_details"></h1>
+      </div>
+      <div class="uk-card">
+        <h2 class="uk-card-title">{name}</h2>
+      </div>
+      <div>
+        <h1>{{measurement_process}}</h1>
+      </div>
+    </div>
+
+    <!-- General Statistics -->
+    <div class="stats-container">
+
+      <div id="mean_pm2_5" class="stat-card"
+        swa="Present FROM /SmartDataLyser/smartdatalyser/statistic/mean?smartdataurl={{smartdataurl}}&collection={{data_collection}}&storage=smartmonitoring&column={{display_value_1}}&filterColumn=measurement_process&filterValue={{measurement_process}}">
+        <span class="material-icons-outlined stats-icon">{{display_value_1_icon}}</span>
+        <div>
+          <div class="stat-value" swac_lang_format="decimal" swac_round="2">{mean}</div>
+          <div class="stat-label" swac_lang="{{display_value_1}}"></div>
+        </div>
+      </div>
+
+      <div id="mean_pm10_0" class="stat-card"
+        swa="Present FROM /SmartDataLyser/smartdatalyser/statistic/mean?smartdataurl={{smartdataurl}}&collection={{data_collection}}&storage=smartmonitoring&column={{display_value_2}}&filterColumn=measurement_process&filterValue={{measurement_process}}">
+        <span class="material-icons-outlined stats-icon">{{display_value_2_icon}}</span>
+        <div>
+          <div class="stat-value" swac_lang_format="decimal" swac_round="2">{mean}</div>
+          <div class="stat-label" swac_lang="{{display_value_2}}"></div>
+        </div>
+      </div>
+
+      <div id="mean_temp" class="stat-card"
+        swa="Present FROM /SmartDataLyser/smartdatalyser/statistic/mean?smartdataurl={{smartdataurl}}&collection={{data_collection}}&storage=smartmonitoring&column={{display_value_3}}&filterColumn=measurement_process&filterValue={{measurement_process}}">
+        <span class="material-icons-outlined stats-icon">{{display_value_3_icon}}</span>
+        <div>
+          <div class="stat-value" swac_lang_format="decimal" swac_round="2">{mean}</div>
+          <div class="stat-label" swac_lang="{{display_value_3}}"></div>
+        </div>
+      </div>
+
+          <div id="count-datasets" class="stat-card"
+            swa="Present FROM /SmartDataLyser/smartdatalyser/statistic/count?smartdataurl={{smartdataurl}}&collection={{data_collection}}&storage=smartmonitoring&dateattribute={{timestamp}}&filterColumn=measurement_process&filterValue={{measurement_process}}">
+            <span class="material-icons-outlined stats-icon">analytics</span>
+            <div>
+              <div class="stat-value">{count}</div>
+              <div class="stat-label" swac_lang="datapoints"></div>
+            </div>
+          </div>
+
+          <div id="duration-Ergebnis2" class="stat-card">
+            <span class="material-icons-outlined stats-icon">timer</span>
+            <div>
+              <div id="durerg" class="stat-value">123</div>
+              <div class="stat-label" swac_lang="duration">Duration</div>
+            </div>
+          </div>
+          </div>
+
+        <div class="stats-container">
+          <div class="stat-card" id="minPM25" swa="Present FROM {{data_collection}} WHERE filter=measurement_process,eq,{{measurement_process}} AND order={{display_value_1}},ASC AND size=1">
+            <div class="stat-value" swac_lang_format="decimal" swac_round="2">{{{display_value_1}}}</div>
+            <div class="stat-label" swac_lang="min_pm25"></div>
+          </div>
+
+           <div class="stat-card" id="maxPM25" swa="Present FROM {{data_collection}} WHERE filter=measurement_process,eq,{{measurement_process}} AND order={{display_value_1}},DESC AND size=1">
+            <div class="stat-value" swac_lang_format="decimal" swac_round="2">{{{display_value_1}}}</div>
+            <div class="stat-label" swac_lang="max_pm25"></div>
+          </div>
+        </div>
+
+        <div class="stats-container">
+          <div class="stat-card" id="minPM10" swa="Present FROM {{data_collection}} WHERE filter=measurement_process,eq,{{measurement_process}} AND order={{display_value_2}},ASC AND size=1">
+            <div class="stat-value" swac_lang_format="decimal" swac_round="2">{{{display_value_2}}}</div>
+            <div class="stat-label" swac_lang="min_pm10"></div>
+          </div>
+
+           <div class="stat-card" id="maxPM10" swa="Present FROM {{data_collection}} WHERE filter=measurement_process,eq,{{measurement_process}} AND order={{display_value_2}},DESC AND size=1">
+            <div class="stat-value" swac_lang_format="decimal" swac_round="2">{{{display_value_2}}}</div>
+            <div class="stat-label" swac_lang="max_pm10"></div>
+          </div>
+        </div>
+
+        <div class="stats-container">
+          <div class="stat-card" id="minTemp" swa="Present FROM {{data_collection}} WHERE filter=measurement_process,eq,{{measurement_process}} AND order={{display_value_3}},ASC AND size=1">
+            <div class="stat-value" swac_lang_format="decimal" swac_round="2">{{{display_value_3}}}</div>
+            <div class="stat-label" swac_lang="min_temp"></div>
+          </div>
+
+           <div class="stat-card" id="maxTemp" swa="Present FROM {{data_collection}} WHERE filter=measurement_process,eq,{{measurement_process}} AND order={{display_value_3}},DESC AND size=1">
+            <div class="stat-value" swac_lang_format="decimal" swac_round="2">{{{display_value_3}}}</div>
+            <div class="stat-label" swac_lang="max_temp"></div>
+          </div>
+        </div>
+  </div>
+
+  <div class="swac_dontdisplay" style="display: none;" id="firstMeasurement" swa="Present FROM {{data_collection}} WHERE filter=measurement_process,eq,{{measurement_process}} AND order={{timestamp}},ASC AND size=1">{{{timestamp}}}</div>
+  <div class="swac_dontdisplay" style="display: none;" id="lastMeasurement" swa="Present FROM {{data_collection}} WHERE filter=measurement_process,eq,{{measurement_process}} AND order={{timestamp}},DESC AND size=1">{{{timestamp}}}</div>
+  
+  <!-- Selection tab (map or data list) for route detail view -->
+  <div class="section">
+    <ul class="uk-subnav uk-subnav-pill custom-switcher" uk-tab="connect: #route-switcher; swiping: false">
+      <li class="uk-active"><a href="#" swac_lang="Datamap"></a></li>
+      <li><a href="#" swac_lang="datapoints"></a></li>
+    </ul>
+    <div id="route-switcher" class="uk-switcher uk-margin">
+      
+      <!-- TAB 1 map with data points -->
+      <div uk-grid>
+        <div class="uk-width-1-6">
+          <div id="routemap_datadescription" swa="Datadescription FROM {{map_datadescription}}"></div>
+        </div>
+        <div class="uk-width-5-6">
+          <div id="route_map" swa="Worldmap2d FROM {{data_collection}} WHERE filter=measurement_process,eq,{{measurement_process}} AND order={{timestamp}},DESC"></div>
+        </div>
+      </div>
+
+      <!-- TAB 2 data points of a route -->
+      <article style="padding-left: 0; padding-top: 20px;">
+
+        <!-- search field for data table -->
+        <div class="search-wrapper">
+          <span class="material-icons-outlined search-icon">search</span>
+          <input id="tableSearch" type="text" class="search-input" onkeyup="filterTable()" placeholder="...">
+        </div>
+
+        <div class="dev-card">
+          <div id="datalist" swa="Present FROM {{data_collection}} WHERE geotransform=latlon AND filter=measurement_process,eq,{{measurement_process}} AND order={{timestamp}},DESC">
+            <table class="dev-table sortable-table" id="dataTable">
+              <thead>
+                <tr>
+                  <th onclick="sortTable(0)">ID</th>
+                  <th onclick="sortTable(1)" swac_lang="{{timestamp}}"></th>
+                  <th onclick="sortTable(2)" swac_lang="{{display_value_3}}"></th>
+                  <th onclick="sortTable(3)" swac_lang="{{display_value_1}}"></th>
+                  <th onclick="sortTable(4)" swac_lang="{{display_value_2}}"></th>
+                  <th>Latitude</th>
+                  <th>Longitude</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="swac_repeatForSet">
+                  <td>{id}</td>
+                  <td swac_lang_format="datetime">{{{timestamp}}}</td>
+                  <td swac_lang_format="decimal" swac_round="2">{{{display_value_3}}}</td>
+                  <td swac_lang_format="decimal" swac_round="2">{{{display_value_1}}}</td>
+                  <td swac_lang_format="decimal" swac_round="2">{{{display_value_2}}}</td>
+                  <td>{{{lat}}}</td>
+                  <td>{{{lon}}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</body>
+</html>

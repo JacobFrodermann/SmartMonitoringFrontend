@@ -1,0 +1,142 @@
+.visualisation-controls {
+    display: grid;
+    grid-template-columns: minmax(220px, 360px) minmax(180px, 240px) 1fr auto;
+    gap: 24px;
+    align-items: end;
+}
+
+.visualisation-mode-control,
+.visualisation-column-control,
+.visualisation-attribute-control {
+    min-width: 0;
+}
+
+.visualisation-attribute-control {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.visualisation-attribute-list {
+    display: grid;
+    grid-template-columns: minmax(220px, 360px);
+    gap: 12px;
+    min-height: 30px;
+}
+
+.visualisation-attribute-option {
+    display: block;
+    min-width: 0;
+}
+
+.visualisation-attribute-option .uk-form-label {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#visualisation_attribute_apply {
+    grid-column: 4;
+    grid-row: 1;
+    min-width: 120px;
+}
+
+#visualisation_chart:not(.uk-hidden) {
+    margin-top: 24px;
+}
+
+#auto_visualisation .swac_repeatedForSet {
+    --visualisation-columns: 2;
+    --visualisation-diagram-size: 360px;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+#auto_visualisation[data-columns="1"] .swac_repeatedForSet {
+    --visualisation-columns: 1;
+    --visualisation-diagram-size: 420px;
+}
+
+#auto_visualisation[data-columns="3"] .swac_repeatedForSet {
+    --visualisation-columns: 3;
+    --visualisation-diagram-size: 300px;
+}
+
+#auto_visualisation[data-columns="4"] .swac_repeatedForSet {
+    --visualisation-columns: 4;
+    --visualisation-diagram-size: 240px;
+}
+
+#auto_visualisation[data-columns="5"] .swac_repeatedForSet {
+    --visualisation-columns: 5;
+    --visualisation-diagram-size: 200px;
+}
+
+#auto_visualisation .swac_visualise_values,
+#auto_visualisation .swac_repeatedForSet > div:nth-of-type(2) {
+    display: grid;
+    grid-template-columns: repeat(var(--visualisation-columns), minmax(0, 1fr));
+    gap: 16px;
+}
+
+#auto_visualisation .swac_repeatedForValue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    min-height: calc(var(--visualisation-diagram-size) + 70px);
+    padding: 24px;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+}
+
+#auto_visualisation .swac_visualise_diagram_attr {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#auto_visualisation .swac_visualise_diagram_attr svg {
+    width: min(100%, var(--visualisation-diagram-size));
+    height: var(--visualisation-diagram-size);
+}
+
+#auto_visualisation .swac_visualise_legend_attr {
+    width: 100%;
+    margin-top: 8px;
+    text-align: center;
+}
+
+#auto_visualisation .swac_visualise_ts {
+    margin-top: 4px;
+}
+
+@media screen and (max-width: 639px) {
+    .visualisation-controls {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    #visualisation_attribute_apply {
+        grid-column: auto;
+        grid-row: auto;
+        width: 100%;
+    }
+
+    #auto_visualisation .swac_visualise_values,
+    #auto_visualisation .swac_repeatedForSet > div:nth-of-type(2) {
+        grid-template-columns: 1fr;
+    }
+
+    #auto_visualisation .swac_repeatedForValue {
+        min-height: 0;
+    }
+
+    #auto_visualisation .swac_visualise_diagram_attr svg {
+        width: min(100%, 280px);
+        height: 280px;
+    }
+}

@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "subtitle": "total_km",
+        "avail": true,
+        "card_visible_default": true,
+        "data_source": "cmd://SmartDataLyser/smartdatalyser/geo/distance?smartdataurl=/SmartData&storage=smartmonitoring&collection={{data_collection}}&geoattr=pos&filter=measurement_process,eq,{{measurement_process}}",
+        "data_comp": "Present",
+        "content": "<div class=\"swac_repeatForSet\" style=\"font-size: 3em;text-align:center;\" swac_round=\"3\">{totalKM}</div>",
+        "ecomode": false
+    },
+    {
+        "id": 2,
+        "subtitle": "Stunden",
+        "avail": true,
+        "card_visible_default": true,
+        "data_source": "cmd://SmartDataLyser/smartdatalyser/geo/duration?smartdataurl=/SmartData&storage=smartmonitoring&collection={{data_collection}}&geoattr=pos&filter=measurement_process,eq,{{measurement_process}}",
+        "data_comp": "Present",
+        "content": "<div class=\"swac_repeatForSet\" style=\"font-size: 3em;text-align:center;\" swac_round=\"2\">{durationH}</div>",
+        "ecomode": false
+    },
+    {
+        "id": 3,
+        "subtitle": "Messpunkte",
+        "avail": true,
+        "card_visible_default": true,
+        "data_source": "cmd://SmartData/smartdata/records/{{data_collection}}?storage=smartmonitoring&filter=measurement_process,eq,{{measurement_process}}&countonly=true",
+        "data_comp": "Present",
+        "content": "<div class=\"swac_repeatForSet\" style=\"font-size: 3em;text-align:center;\" swac_round=\"2\">{count}</div>",
+        "ecomode": false
+    },
+    {
+        "id": 4,
+        "subtitle": "KM/Stunde",
+        "avail": true,
+        "card_visible_default": true,
+        "data_source": "cmd://SmartDataLyser/smartdatalyser/geo/speed?smartdataurl=/SmartData&storage=smartmonitoring&collection={{data_collection}}&geoattr=pos&filter=measurement_process,eq,{{measurement_process}}",
+        "data_comp": "Present",
+        "content": "<div class=\"swac_repeatForSet\" style=\"font-size: 3em;text-align:center;\" swac_round=\"2\">{avgSpeedKMH}</div>",
+        "ecomode": false
+    },
+    {
+        "id": 5,
+        "subtitle": "PM 2.5 Mittel",
+        "avail": true,
+        "card_visible_default": true,
+        "data_source": "cmd://SmartDataLyser/smartdatalyser/statistic/mean?smartdataurl=/SmartData&storage=smartmonitoring&collection={{data_collection}}&column=pm2_5&filterColumn=measurement_process&filterValue={{measurement_process}}",
+        "data_comp": "Present",
+        "content": "<div class=\"swac_repeatForSet\" style=\"font-size: 3em;text-align:center;\" swac_round=\"2\">{mean}</div>",
+        "ecomode": false
+    },
+    {
+        "id": 6,
+        "subtitle": "PM 10 Mittel",
+        "avail": true,
+        "card_visible_default": true,
+        "data_source": "cmd://SmartDataLyser/smartdatalyser/statistic/mean?smartdataurl=/SmartData&storage=smartmonitoring&collection={{data_collection}}&column=pm10_0&filterColumn=measurement_process&filterValue={{measurement_process}}",
+        "data_comp": "Present",
+        "content": "<div class=\"swac_repeatForSet\" style=\"font-size: 3em;text-align:center;\" swac_round=\"2\">{mean}</div>",
+        "ecomode": false
+    }
+]

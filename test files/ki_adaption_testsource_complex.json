@@ -1,0 +1,126 @@
+{
+  "document": {
+    "provider": {
+      "system": "HydroSense Open Measurement Gateway",
+      "exportedAt": "2026-08-05T14:30:00Z",
+      "datasetKind": "mobile_water_quality"
+    },
+    "lookup": {
+      "stations": {
+        "ws_17": {
+          "display": "Weserufer Nord",
+          "geoE6": [8917420, 52290180],
+          "elevationCm": 5120,
+          "catchment": "weser"
+        },
+        "ws_23": {
+          "display": "Bastau Minden",
+          "geoE6": [8906310, 52293360],
+          "elevationCm": 4870,
+          "catchment": "bastau"
+        }
+      },
+      "fields": {
+        "0": {
+          "semantic": "observation_time",
+          "encoding": "seconds_after_block_start"
+        },
+        "1": {
+          "semantic": "water_temperature",
+          "unitRef": "celsius"
+        },
+        "2": {
+          "semantic": "acidity",
+          "unitRef": "ph"
+        },
+        "3": {
+          "semantic": "optical_turbidity",
+          "unitRef": "ntu"
+        },
+        "4": {
+          "semantic": "electrical_conductivity",
+          "unitRef": "micro_siemens_per_centimeter"
+        },
+        "5": {
+          "semantic": "dissolved_oxygen",
+          "unitRef": "milligrams_per_liter"
+        },
+        "6": {
+          "semantic": "water_level",
+          "unitRef": "centimeter"
+        }
+      },
+      "units": {
+        "celsius": "°C",
+        "ph": "pH",
+        "ntu": "NTU",
+        "micro_siemens_per_centimeter": "µS/cm",
+        "milligrams_per_liter": "mg/L",
+        "centimeter": "cm"
+      }
+    },
+    "payload": {
+      "collectionWindows": [
+        {
+          "anchor": "2026-08-05T09:00:00Z",
+          "segments": [
+            {
+              "stationRef": "ws_17",
+              "readingTuples": [
+                [0, 17.8, 7.42, 3.7, 412, 9.46, 286],
+                [173, 18.6, 7.31, 5.9, 419, 9.11, 287],
+                [351, 19.4, 7.56, 8.2, 427, 8.74, 287],
+                [534, 18.9, 7.48, 4.4, 421, 9.03, 288],
+                [719, 20.1, 7.29, 11.6, 438, 8.49, 289]
+              ],
+              "qualityBits": "11111"
+            },
+            {
+              "stationRef": "ws_23",
+              "readingTuples": [
+                [41, 16.3, 7.84, 14.8, 566, 8.17, 193],
+                [226, 16.9, 7.73, 18.5, 574, 7.92, 194],
+                [408, 17.1, 7.68, 12.2, 569, 8.05, 194],
+                [598, 17.7, 7.91, 21.4, 581, 7.61, 195],
+                [781, 18.2, 7.77, 16.9, 577, 7.88, 196]
+              ],
+              "qualityBits": "11101"
+            }
+          ]
+        },
+        {
+          "anchor": "2026-08-05T12:00:00Z",
+          "segments": [
+            {
+              "stationRef": "ws_17",
+              "readingTuples": [
+                [22, 22.4, 7.18, 9.1, 446, 8.22, 291],
+                [207, 23.1, 7.09, 13.7, 452, 7.96, 292],
+                [390, 22.7, 7.24, 7.6, 449, 8.34, 292],
+                [576, 24.3, 7.12, 16.3, 461, 7.71, 293],
+                [758, 23.8, 7.05, 10.4, 457, 8.02, 294]
+              ],
+              "qualityBits": "11011"
+            },
+            {
+              "stationRef": "ws_23",
+              "readingTuples": [
+                [36, 20.6, 7.66, 26.8, 588, 7.42, 198],
+                [214, 21.3, 7.59, 19.6, 594, 7.68, 198],
+                [401, 21.8, 7.52, 31.2, 603, 7.21, 199],
+                [587, 22.1, 7.47, 24.3, 598, 7.46, 200],
+                [766, 21.5, 7.63, 28.7, 609, 7.14, 200]
+              ],
+              "qualityBits": "10111"
+            }
+          ]
+        }
+      ],
+      "encoding": {
+        "tupleFieldOrder": [0, 1, 2, 3, 4, 5, 6],
+        "coordinates": "longitude_and_latitude_multiplied_by_1000000",
+        "qualityBits": "one_character_per_reading_tuple; zero_means_quality_warning"
+      }
+    }
+  }
+}

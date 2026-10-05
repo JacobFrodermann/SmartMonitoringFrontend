@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title swac_lang="stat_oolabels_title">SmartMonitoring > Statistic > Object Labels</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="shortcut icon" type="image/x-icon" href="../../customisations/favicon.ico">
+        <link rel="stylesheet" href="../../css/global.css" />
+
+        <link rel="stylesheet" href="/SWAC/swac/libs/uikit/css/uikit.min.css" />
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+
+        <script src="../../js/statistic/oolabels.js"></script>
+
+        <link rel="stylesheet" href="../../customisations/global.css" />
+    </head>
+
+    <body>
+        <nav id="main_navigation" class="swac_navigation_head" swa="Navigation FROM tbl_navigationroute WHERE filter=active,eq,true AND order=id,ASC"></nav>
+        <div id="userform" swa="User"></div>
+        <div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+
+        <article>
+            <h1 class="uk-article-title" swac_lang="stat_oolabels_h1">Object Label statistic</h1>
+
+            <div id="chart" swa="Charts FROM label_labels WHERE join=tbl_observedobject AND order=id,ASC"></div>
+
+            <div id="list" swa="Present FROM label_labels WHERE join=tbl_observedobject AND order=id,ASC">
+                <ul class="uk-list">
+                    <li class="swac_repeatForSet" swac_parent="{parent}">
+                        <div class="uk-card uk-card-default uk-card-small uk-card-body">
+                            <div uk-grid>
+                                <div class="uk-width-small">
+                                    <!--                                    <picture>
+                                                                            <source srcset="../../files/labelicons/{icon}.avif" type="image/avif">
+                                                                            <img src="../../files/labelicons/{icon}.png" alt="object icon" width="100" height="100" style="float: left;">
+                                                                        </picture>-->
+                                    <img src="{picture}" alt="Label icon" width="100" height="100" style="float: left;">
+                                </div>
+                                <div class="uk-width-expand@m">
+                                    <h3 class="uk-card-title" uk-tooltip="{id}">{name}</h3>
+                                    <div>{description} <a href="{link_url}" swac_hideOnEmpty="{link_url}">{link_title}</a></div>
+                                    <ul class="uk-subnav uk-subnav-divider" uk-margin>
+                                        <li swac_hideOnEmpty="{joinsetsIds}"><a href="../object/list.html?filter=id,in,{joinsetsIds},comps:objectlist" swac_lang="stat_oolabels_showobjlist">Show object list</a></li>
+                                        <li swac_hideOnEmpty="{joinsetsIds}"><a href="#" onclick="showMap([{joinsetsIds}])" swac_lang="stat_oolabels_showobjmap">Show on map</a></li>
+                                        <li>{joinsetsCount} &nbsp;<span swac_lang="stat_oolabels_foundoos">objects with this label found.</span></li>
+                                        <li><span class="count_datasets"></span>&nbsp;<span swac_lang="stat_oolabels_datasets">datasets found for this label.</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <ul class="swac_forChilds uk-list">
+                                <li class="swac_child">
+                                    <div class="uk-card uk-card-default uk-card-small uk-card-body">
+                                        <div uk-grid>
+                                            <div class="uk-width-small">
+                                                <img src="{picture}" alt="Label icon" width="100" height="100" style="float: left;">
+                                            </div>
+                                            <div class="uk-width-expand@m">
+                                                <h3 class="uk-card-title">{name}</h3>
+                                                <div>{description} <a href="{link_url}" swac_hideOnEmpty="{link_url}">{link_title}</a></div>
+                                                <ul class="uk-subnav uk-subnav-divider" uk-margin>
+                                                    <li swac_hideOnEmpty="{joinsetsIds}"><a href="../object/list.html?filter=id,in,{joinsetsIds},comps:objectlist" swac_lang="stat_oolabels_showobjlist">Show object list</a></li>
+                                                    <li swac_hideOnEmpty="{joinsetsIds}"><a href="#" onclick="showMap([{joinsetsIds}])" swag_lang="stat_oolabels_showobjmap">Show on map</a></li>
+                                                    <li>{joinsetsCount} &nbsp;<span swac_lang="stat_oolabels_foundoos">objects with this label found.</span></li>
+                                                    <li><span class="count_datasets"></span>&nbsp;<span swac_lang="stat_oolabels_datasets">datasets found for this label.</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="swac_forChilds uk-list uk-list-decimal"></ul>
+                                    <hr>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <div id="favs" swa="Favourites"></div>
+    </body>
+</html>

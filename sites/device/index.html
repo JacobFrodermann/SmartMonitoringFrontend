@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title swac_lang="device_index_title">SmartMonitoring - Device dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../../files/icons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../files/icons/16x16.png">
+        <link rel="shortcut icon" type="image/x-icon" href="../../customisations/favicon.ico">
+        <link rel="stylesheet" href="../../css/global.css" />
+        <link rel="stylesheet" href="/SWAC/swac/libs/uikit/css/uikit.min.css" />
+        <script src="/SWAC/swac/libs/uikit/js/uikit.min.js"></script>
+        <script src="/SWAC/swac/libs/uikit/js/uikit-icons.min.js"></script>
+        <script src="/SWAC/swac/swac.js" type="module"></script>
+        <script src="../../js/device/index.js"></script>
+        <link rel="stylesheet" href="../../customisations/global.css" />
+    </head>
+
+    <body>
+        <div id="translate" swa="Translator FROM ../../data/languages/translations.json"></div>
+        <div id="commands" swa="CommandRouter OPTIONS command_options"></div>
+        <article id="device" class="uk-padding-small" style="padding-bottom: 80px;" swa="Present FROM tbl_observedobject WHERE filter=id,eq,{{oo_id}}">
+            <h1 class="uk-heading-small"><span swac_lang="device_welcome">Your device</span> <span class="device_name">{name}</span></h1>
+            <span class="swac_dontdisplay">{data_collection}</span> <!-- for navigation -->
+            <div class="uk-child-width-1-2 uk-text-center" uk-grid>
+                <div class="uk-card uk-card-default uk-card-body">
+                    <h3 class="uk-card-title" swac_lang="device_websocket">WebSocket</h3>
+                    <div id="websocket_state_{id}" swa="Present FROM /SmartWebSocket/smartwebsocket/socket/{name}">
+                        <button swac_display="{response}" class="uk-button uk-label-success" swac_lang="device_connected">connected</button>
+                        <button swac_hide="{response}" class="uk-button uk-label-default" swac_lang="device_disconnected">disconnected</button>
+                    </div>
+                </div>
+                <div class="uk-card uk-card-default uk-card-body">
+                    <h3 class="uk-card-title" swac_lang="device_bluetooth">Bluetooth</h3>
+                    <div id="bluetooth_{id}" swa="Bluetooth TEMPLATE minimal OPTIONS bluetooth_options"></div>
+                </div>
+            </div>
+            <iframe id="dataframe" src="control.html" style="width: 100%; border: none; display: block; min-height: 500px; height: 100%;" scrolling="no"></iframe>
+        </article>
+
+        <footer class="uk-tile-secondary uk-padding-small" style="position: fixed; bottom: 0px; width:100%">
+            <nav id="nav" swa="Navigation FROM ../../data/routes_device.json TEMPLATE nav_icons"></nav>
+        </footer>
+    </body>
+</html>
