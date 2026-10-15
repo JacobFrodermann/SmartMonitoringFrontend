@@ -74,6 +74,12 @@
                     "method": "put",
                     "body": "{\"id\": 102, \"active\": false}",
                     "url": "records/tbl_systemconfiguration?storage=smartmonitoring"
+                },
+                {
+                    "type": "rest",
+                    "method": "put",
+                    "body": "{\"id\": 102, \"active\": false}",
+                    "url": "records/tbl_navigationroute?storage=smartmonitoring"
                 }
             ]
         },
