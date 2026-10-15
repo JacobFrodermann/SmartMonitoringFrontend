@@ -105,7 +105,7 @@ var app_de = {
     possiblevalues: 'M&ouml;gliche Werte',
 
     index_setupmissing_h1: 'Willkommen zum SmartMonitoring',
-    index_setupmissing_desc: 'Diese SmartMonitoring Installation ist noch nicht öffentlich zugänglich. Bitte haben Sie noch etws Geduld, bist die Installation abgeschlossen wurde.',
+    index_setupmissing_desc: 'Willkommen zum SmartMonitoring. Ihrer Plattform für das Organisieren, Sammeln und Auswerten von Daten jeglicher Art.',
     index_login_device: 'Zum Gerät anmelden',
     index_login_nodevice: 'Ich habe kein Gerät',
     
