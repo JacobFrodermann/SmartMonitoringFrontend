@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-web-app PUBLIC
+    "-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN"
+    "http://glassfish.org/dtds/glassfish-web-app_3_0-1.dtd">
+<!--
+    Pins the context root to /SmartMonitoringFrontend.
+
+    configuration.js references /SmartMonitoringFrontend/data/[fromName]
+    absolutely (its data source for the JSON files below data/), and the front
+    end loads SWAC, SmartData and SmartUser by absolute path. Deploying under a
+    different name breaks the data sources, so do not change this value without
+    changing configuration.js.
+-->
+<glassfish-web-app error-url="">
+    <context-root>SmartMonitoringFrontend</context-root>
+</glassfish-web-app>

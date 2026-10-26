@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Minimal deployment descriptor for the static SmartMonitoring front end.
+
+    The application is pure HTML/CSS/JavaScript and is served entirely by the
+    container's default servlet. This descriptor only supplies:
+
+    - the welcome file returned for /SmartMonitoringFrontend/,
+    - MIME mappings for asset types that GlassFish/Payara does not map by
+      default (notably woff2, which would otherwise be served as
+      application/octet-stream and break the icon fonts, and webmanifest,
+      which the PWA manifest files use).
+
+    Do not add servlets or filters here.
+-->
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                             https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>SmartMonitoring</display-name>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <mime-mapping>
+        <extension>svg</extension>
+        <mime-type>image/svg+xml</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>woff</extension>
+        <mime-type>font/woff</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>woff2</extension>
+        <mime-type>font/woff2</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>json</extension>
+        <mime-type>application/json</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>webmanifest</extension>
+        <mime-type>application/manifest+json</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>manifest</extension>
+        <mime-type>application/manifest+json</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>wasm</extension>
+        <mime-type>application/wasm</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>ico</extension>
+        <mime-type>image/x-icon</mime-type>
+    </mime-mapping>
+
+</web-app>

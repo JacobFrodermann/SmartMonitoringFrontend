@@ -1,0 +1,8 @@
+.git
+nbproject
+docs
+test files
+README.md
+AGENTS.md
+*.md
+.DS_Store
