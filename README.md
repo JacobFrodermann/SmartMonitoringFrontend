@@ -22,14 +22,14 @@ docker build -t smartmonitoringfrontend-war:local .
 
 The image contains `/opt/wars/SmartMonitoringFrontend.war` and nothing else; it
 never runs Payara. It is deployed by the master image of the
-[SmartDataDeployment](../SmartDataDeployment) repository, which runs the whole
+[SmartDataDeployment](..) repository, which runs the whole
 stack (Payara + PostgreSQL + SmartDataJobs + SmartUser + SmartData + SWAC +
 this front end).
 
 ## Full stack
 
 ```bash
-cd ../SmartDataDeployment
+cd ..
 ./scripts/up.sh                 # build all artifact images and start the stack
 ./scripts/init-smartuser.sh     # once, on a fresh database
 ./scripts/init-smartmonitoring.sh   # creates the smartmonitoring storage,

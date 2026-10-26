@@ -11,7 +11,7 @@ absolute path, and all runtime data comes from the SmartData storage
 
 Read this file before changing the packaging, the context root or
 `configuration.js`. The deployment side (Compose, master Payara image, bootstrap
-scripts) is documented in `../SmartDataDeployment/AGENTS.md`.
+scripts) is documented in `../AGENTS.md`.
 
 ---
 
@@ -104,7 +104,7 @@ There are two ways to apply them:
 
 1. **UI**: `sites/admin/setup.html` (and `functions.html`) in a running
    deployment.
-2. **Headless**: `../SmartDataDeployment/scripts/init-smartmonitoring.sh`,
+2. **Headless**: `../scripts/init-smartmonitoring.sh`,
    which creates the storage, applies every preset idempotently and is safe to
    re-run. This is the supported way for the Docker stack.
 
@@ -142,7 +142,7 @@ docker build -t smartmonitoringfrontend-war:local .
 ```
 
 The image is only an artifact carrier; it never runs Payara. The master image
-in `../SmartDataDeployment/Dockerfile.payara` copies the WAR into
+in `../Dockerfile.payara` copies the WAR into
 `/opt/payara/deployments`.
 
 Not packaged: `test files/`, `docs/`, `nbproject/`, Markdown files, `.git`
@@ -188,7 +188,7 @@ manifest files.
   `func_userlogin` (id 1101), which gates the login form on the start page. A
   fresh installation therefore shows no login form until the switch is
   activated in `sites/admin/functions.html`. The deployment bootstrap
-  (`../SmartDataDeployment/scripts/init-smartmonitoring.sh`) enables exactly
+  (`../scripts/init-smartmonitoring.sh`) enables exactly
   that switch; everything else stays inactive by default.
 - `js/ai-config.js` targets `/SmartData/smartdata/proxy/ai`, which SmartData
   does not implement (only `proxy/get`). AI features are inert.
@@ -205,7 +205,7 @@ manifest files.
 
 ## 7. Verification after packaging changes
 
-With the stack running (`../SmartDataDeployment/scripts/up.sh`):
+With the stack running (`../scripts/up.sh`):
 
 ```bash
 curl -sI http://localhost:8080/SmartMonitoringFrontend/                     # 200, text/html
