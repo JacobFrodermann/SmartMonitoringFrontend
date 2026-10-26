@@ -71,6 +71,36 @@ bootstrap (`init-smartmonitoring.sh`) assumes the default.
 `js/ai-config.js` points at `/SmartData/smartdata/proxy/ai`. SmartData exposes
 only `proxy/get` (GET) — the AI features are not functional in this stack.
 
+### Redirect options must be absolute application paths
+
+SWAC's `User` component prefixes `SWAC_config.app_root` to every URL option it
+builds (`swac/components/User/User.js`):
+
+| Option | Resulting URL |
+| --- | --- |
+| `afterLoginLoc` | `app_root + afterLoginLoc` |
+| `afterLogoutLoc` | `app_root + afterLogoutLoc` |
+| `loggedinRedirects` values | `app_root + value` |
+| `accountURL` | `app_root + accountURL` |
+| `registrationLink` | `app_root + registrationLink` |
+
+`SWAC_config.app_root` is the context root **without** a trailing slash
+(`/SmartMonitoringFrontend`), so all of these values must be application
+absolute and start with `/`:
+
+```js
+afterLoginLoc: '/sites/object/dashboard.html'   // -> /SmartMonitoringFrontend/sites/object/dashboard.html
+afterLoginLoc: 'sites/object/dashboard.html'    // -> /SmartMonitoringFrontendsites/object/dashboard.html
+afterLoginLoc: '/sites/object/dashboard.html'   // plain window.location: needs the leading / as well
+```
+
+Keep the leading `/` in the plain `window.location = '/sites/...'`
+assignments in `index.js` (device selection, dashboard) for the same reason.
+
+Navigation entries (`footerlinks` → `rto`) are the exception: the `Navigation`
+component prefixes `app_root + '/sites/'` itself, so those stay relative.
+
+
 ---
 
 ## 3. Data model and bootstrap
@@ -184,6 +214,13 @@ manifest files.
 - `configuration.js` defines `userform_options`, while `index.html` refers to
   `swac_login_options`; the real definition lives in `index.js`. Keep both when
   changing login behaviour.
+- Historically the redirect options were relative
+  (`sites/object/dashboard.html`, `./index.html`, `../../sites/user/account.html`),
+  which made the post-login redirect point at
+  `/SmartMonitoringFrontendsites/object/dashboard.html`; SWAC used to apply
+  `app_root` to some of them and none at all to others. Both sides are fixed:
+  SWAC prefixes `app_root` everywhere, this application passes absolute paths.
+  Do not "simplify" either side back.
 - Every feature switch in the preset data ships with `active=false`, including
   `func_userlogin` (id 1101), which gates the login form on the start page. A
   fresh installation therefore shows no login form until the switch is
